@@ -1,0 +1,65 @@
+{
+    "presentation": {
+      "size": { "width_in": 16, "height_in": 9 },
+      "slides": [
+        {
+          "background": "#0B1021",
+          "shapes": [
+            {
+              "type": "text",
+              "text": "What is an LLM?",
+              "x": 1,
+              "y": 1,
+              "w": 12,
+              "h": 1.5,
+              "font": { "size": 44, "bold": true, "color": "#FFFFFF" }
+            },
+            {
+              "type": "bullet",
+              "items": ["Definition", "Examples", "Use cases"],
+              "x": 1,
+              "y": 3,
+              "w": 8,
+              "h": 3,
+              "font": { "size": 28, "color": "#DDDDDD" }
+            },
+            {
+              "type": "image",
+              "path": "assets/brain.png",
+              "x": 10,
+              "y": 2.5,
+              "w": 4
+            }
+          ]
+        },
+        {
+          "background": "#FFFFFF",
+          "shapes": [
+            {
+              "type": "text",
+              "text": "Comparison",
+              "x": 1,
+              "y": 0.8,
+              "w": 10,
+              "h": 1.5,
+              "font": { "size": 40, "bold": true, "color": "#333333" }
+            },
+            {
+              "type": "chart",
+              "chartType": "COLUMN_CLUSTERED",
+              "categories": ["2019", "2020", "2021"],
+              "series": [
+                { "name": "Model A", "values": [5, 7, 9] },
+                { "name": "Model B", "values": [2, 4, 6] }
+              ],
+              "x": 1,
+              "y": 2,
+              "w": 10,
+              "h": 5
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
