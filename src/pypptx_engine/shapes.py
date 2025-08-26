@@ -7,10 +7,10 @@ import os
 from typing import Any, Dict, List
 
 from pptx.util import Inches, Pt
-from pptx.enum.shapes import MSO_SHAPE, MSO_SHAPE_TYPE
+from pptx.enum.shapes import MSO_SHAPE, MSO_SHAPE_TYPE, MSO_CONNECTOR_TYPE
 from pptx.enum.text import MSO_VERTICAL_ANCHOR
-from pptx.chart.data import CategoryChartData
-from pptx.enum.chart import XL_CHART_TYPE
+from pptx.chart.data import CategoryChartData, XyChartData, BubbleChartData
+from pptx.enum.chart import XL_CHART_TYPE, XL_LEGEND_POSITION, XL_DATA_LABEL_POSITION
 
 from .formatters import FontFormatter, ColorFormatter, LineFormatter, ShadowFormatter
 
@@ -50,6 +50,10 @@ class ShapeFactory:
             self.autoshape_handler.create_autoshape(slide, shape_config, x, y, w, h)
         elif shape_type == "connector":
             self.autoshape_handler.create_connector(slide, shape_config, x, y, w, h)
+        elif shape_type == "group":
+            self.autoshape_handler.create_group_shape(slide, shape_config, x, y, w, h)
+        elif shape_type == "freeform":
+            self.autoshape_handler.create_freeform_shape(slide, shape_config, x, y, w, h)
 
 
 class TextShapeHandler:
@@ -80,6 +84,9 @@ class TextShapeHandler:
             # Apply formatting
             FontFormatter.apply_font_formatting(run.font, config.get("font", {}))
             FontFormatter.apply_paragraph_formatting(p, config.get("paragraph", {}))
+            
+            # Apply hyperlinks and click actions
+            self._apply_text_actions(run, config.get("actions", {}))
         elif isinstance(text_content, list):
             # Multiple paragraphs
             for i, para_text in enumerate(text_content):
@@ -93,6 +100,26 @@ class TextShapeHandler:
         
         # Apply shape-level formatting
         self._apply_shape_formatting(textbox, config)
+    
+    def _apply_text_actions(self, run, actions_config: Dict[str, Any]) -> None:
+        """Apply hyperlinks and click actions to text runs."""
+        if not actions_config:
+            return
+        
+        # Hyperlink
+        if "hyperlink" in actions_config:
+            hyperlink_config = actions_config["hyperlink"]
+            url = hyperlink_config.get("url")
+            if url:
+                run.hyperlink.address = url
+        
+        # Click action (for shapes with text)
+        if "click_action" in actions_config:
+            click_config = actions_config["click_action"]
+            action_type = click_config.get("type", "").upper()
+            
+            # Note: Click actions are typically applied to shapes, not text runs
+            # This would need to be handled at the shape level
     
     def create_bullet_shape(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
         """Create a bullet list shape."""
@@ -197,7 +224,7 @@ class ChartShapeHandler:
     """Handle chart shapes."""
     
     def create_chart_shape(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
-        """Create a chart shape."""
+        """Create a chart shape with support for all chart types."""
         chart_type_name = config.get("chartType", "COLUMN_CLUSTERED")
         
         try:
@@ -206,16 +233,10 @@ class ChartShapeHandler:
             print(f"[WARN] Unsupported chart type: {chart_type_name}")
             return
         
-        # Prepare chart data
-        chart_data = CategoryChartData()
-        
-        categories = config.get("categories", [])
-        chart_data.categories = categories
-        
-        for series_config in config.get("series", []):
-            name = series_config.get("name", "Series")
-            values = series_config.get("values", [])
-            chart_data.add_series(name, values)
+        # Prepare chart data based on chart type
+        chart_data = self._prepare_chart_data(config, chart_type_name)
+        if not chart_data:
+            return
         
         # Add chart to slide
         chart_shape = slide.shapes.add_chart(chart_type, x, y, w, h, chart_data)
@@ -223,6 +244,44 @@ class ChartShapeHandler:
         
         # Apply chart formatting
         self._apply_chart_formatting(chart, config.get("formatting", {}))
+    
+    def _prepare_chart_data(self, config: Dict[str, Any], chart_type_name: str):
+        """Prepare chart data based on chart type."""
+        if chart_type_name in ["XY_SCATTER", "XY_SCATTER_LINES", "XY_SCATTER_LINES_NO_MARKERS", "XY_SCATTER_SMOOTH", "XY_SCATTER_SMOOTH_NO_MARKERS"]:
+            # XY/Scatter charts
+            chart_data = XyChartData()
+            for series_config in config.get("series", []):
+                name = series_config.get("name", "Series")
+                xy_data = series_config.get("xy_data", [])
+                series = chart_data.add_series(name)
+                for point in xy_data:
+                    if isinstance(point, (list, tuple)) and len(point) >= 2:
+                        series.add_data_point(point[0], point[1])
+            return chart_data
+        
+        elif chart_type_name in ["BUBBLE", "BUBBLE_THREE_D_EFFECT"]:
+            # Bubble charts
+            chart_data = BubbleChartData()
+            for series_config in config.get("series", []):
+                name = series_config.get("name", "Series")
+                bubble_data = series_config.get("bubble_data", [])
+                series = chart_data.add_series(name)
+                for point in bubble_data:
+                    if isinstance(point, (list, tuple)) and len(point) >= 3:
+                        series.add_data_point(point[0], point[1], point[2])
+            return chart_data
+        
+        else:
+            # Category charts (column, bar, line, pie, area, etc.)
+            chart_data = CategoryChartData()
+            categories = config.get("categories", [])
+            chart_data.categories = categories
+            
+            for series_config in config.get("series", []):
+                name = series_config.get("name", "Series")
+                values = series_config.get("values", [])
+                chart_data.add_series(name, values)
+            return chart_data
     
     def _apply_chart_formatting(self, chart, formatting: Dict[str, Any]) -> None:
         """Apply chart-specific formatting."""
@@ -241,17 +300,46 @@ class ChartShapeHandler:
             if chart.has_legend:
                 legend = chart.legend
                 position = legend_config.get("position", "right").upper()
-                # Set legend position based on config
+                if hasattr(XL_LEGEND_POSITION, position):
+                    legend.position = getattr(XL_LEGEND_POSITION, position)
+        
+        # Data labels
+        if "data_labels" in formatting:
+            data_labels_config = formatting["data_labels"]
+            for plot in chart.plots:
+                plot.has_data_labels = data_labels_config.get("visible", False)
+                if plot.has_data_labels:
+                    data_labels = plot.data_labels
+                    if "position" in data_labels_config:
+                        position = data_labels_config["position"].upper()
+                        if hasattr(XL_DATA_LABEL_POSITION, position):
+                            data_labels.position = getattr(XL_DATA_LABEL_POSITION, position)
         
         # Axes formatting
         if "axes" in formatting:
             axes_config = formatting["axes"]
-            if "category" in axes_config:
-                # Format category axis
-                pass
-            if "value" in axes_config:
-                # Format value axis
-                pass
+            if "category" in axes_config and hasattr(chart, 'category_axis'):
+                self._format_axis(chart.category_axis, axes_config["category"])
+            if "value" in axes_config and hasattr(chart, 'value_axis'):
+                self._format_axis(chart.value_axis, axes_config["value"])
+    
+    def _format_axis(self, axis, axis_config: Dict[str, Any]) -> None:
+        """Format chart axis."""
+        if "title" in axis_config:
+            axis.has_title = True
+            axis.axis_title.text_frame.text = axis_config["title"]
+        
+        if "min_scale" in axis_config:
+            axis.minimum_scale = axis_config["min_scale"]
+        
+        if "max_scale" in axis_config:
+            axis.maximum_scale = axis_config["max_scale"]
+        
+        if "major_unit" in axis_config:
+            axis.major_unit = axis_config["major_unit"]
+        
+        if "minor_unit" in axis_config:
+            axis.minor_unit = axis_config["minor_unit"]
 
 
 class TableShapeHandler:
@@ -357,18 +445,83 @@ class AutoShapeHandler:
     
     def create_connector(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
         """Create a connector shape."""
-        connector_type = config.get("connector_type", "STRAIGHT")
+        connector_type_name = config.get("connector_type", "STRAIGHT")
+        
+        # Map connector type
+        connector_type = MSO_CONNECTOR_TYPE.STRAIGHT
+        if hasattr(MSO_CONNECTOR_TYPE, connector_type_name):
+            connector_type = getattr(MSO_CONNECTOR_TYPE, connector_type_name)
+        
+        # Get connection points
+        begin_x = Inches(config.get("begin_x", x))
+        begin_y = Inches(config.get("begin_y", y))
+        end_x = Inches(config.get("end_x", x + w))
+        end_y = Inches(config.get("end_y", y + h))
         
         # Add connector
-        begin_x, begin_y = x, y
-        end_x, end_y = x + w, y + h
-        
-        # Note: python-pptx connector API is limited
-        # This is a simplified implementation
         connector = slide.shapes.add_connector(
-            1, begin_x, begin_y, end_x, end_y  # STRAIGHT connector type
+            connector_type, begin_x, begin_y, end_x, end_y
         )
         
         # Apply line formatting
         if "line" in config:
             LineFormatter.apply_line_formatting(connector.line, config["line"])
+    
+    def create_group_shape(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
+        """Create a group shape containing multiple shapes."""
+        # Note: python-pptx doesn't have direct group creation API
+        # This is a placeholder for future implementation
+        shapes_config = config.get("shapes", [])
+        
+        # For now, just create individual shapes
+        # In a full implementation, you'd need to use lower-level APIs
+        for shape_config in shapes_config:
+            # Adjust positions relative to group
+            shape_x = x + Inches(shape_config.get("x", 0))
+            shape_y = y + Inches(shape_config.get("y", 0))
+            shape_w = Inches(shape_config.get("w", 1))
+            shape_h = Inches(shape_config.get("h", 1))
+            
+            # Create the shape (this would need the shape factory)
+            # For now, just create basic shapes
+            if shape_config.get("type") == "autoshape":
+                self.create_autoshape(slide, shape_config, shape_x, shape_y, shape_w, shape_h)
+    
+    def create_freeform_shape(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
+        """Create a freeform shape."""
+        # Get the freeform builder
+        freeform_builder = slide.shapes.build_freeform(x, y)
+        
+        # Add points from configuration
+        points = config.get("points", [])
+        for i, point in enumerate(points):
+            point_x = x + Inches(point.get("x", 0))
+            point_y = y + Inches(point.get("y", 0))
+            
+            action = point.get("action", "line_to")
+            if action == "move_to" or i == 0:
+                # First point or explicit move_to
+                pass  # Starting point is already set in build_freeform
+            elif action == "line_to":
+                freeform_builder.add_line_segments([(point_x, point_y)])
+            elif action == "curve_to":
+                # For curves, need control points
+                cp1_x = x + Inches(point.get("cp1_x", 0))
+                cp1_y = y + Inches(point.get("cp1_y", 0))
+                cp2_x = x + Inches(point.get("cp2_x", 0))
+                cp2_y = y + Inches(point.get("cp2_y", 0))
+                # Note: python-pptx has limited curve support
+                freeform_builder.add_line_segments([(point_x, point_y)])
+        
+        # Convert to shape
+        freeform = freeform_builder.convert_to_shape()
+        
+        # Apply formatting
+        if "fill" in config:
+            ColorFormatter.apply_fill(freeform, config["fill"])
+        
+        if "line" in config:
+            LineFormatter.apply_line_formatting(freeform.line, config["line"])
+        
+        if "shadow" in config:
+            ShadowFormatter.apply_shadow(freeform, config["shadow"])

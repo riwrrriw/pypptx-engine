@@ -7,6 +7,7 @@ from typing import Any, Dict
 
 from pptx import Presentation
 from pptx.enum.shapes import MSO_SHAPE_TYPE
+from pptx.enum.action import PP_ACTION_TYPE
 
 
 class SlideManager:
@@ -31,6 +32,11 @@ class SlideManager:
         # Handle placeholders if specified
         placeholders_config = slide_config.get("placeholders", {})
         self._fill_placeholders(slide, placeholders_config)
+        
+        # Add notes slide if specified
+        notes_config = slide_config.get("notes")
+        if notes_config:
+            self._add_notes_slide(slide, notes_config)
     
     def _apply_background(self, slide, background_config) -> None:
         """Apply background formatting to slide."""
@@ -78,3 +84,31 @@ class SlideManager:
                         image_path = content.get("image_path")
                         if image_path:
                             placeholder.insert_picture(image_path)
+    
+    def _add_notes_slide(self, slide, notes_config: Dict[str, Any]) -> None:
+        """Add notes to the slide."""
+        if not notes_config:
+            return
+        
+        notes_slide = slide.notes_slide
+        notes_text_frame = notes_slide.notes_text_frame
+        
+        # Clear existing notes
+        notes_text_frame.clear()
+        
+        # Add notes content
+        notes_content = notes_config.get("text", "")
+        if isinstance(notes_content, str):
+            p = notes_text_frame.paragraphs[0]
+            p.text = notes_content
+        elif isinstance(notes_content, list):
+            for i, para_text in enumerate(notes_content):
+                p = notes_text_frame.add_paragraph() if i > 0 else notes_text_frame.paragraphs[0]
+                p.text = str(para_text)
+        
+        # Apply notes formatting if specified
+        if "font" in notes_config:
+            from .formatters import FontFormatter
+            for paragraph in notes_text_frame.paragraphs:
+                for run in paragraph.runs:
+                    FontFormatter.apply_font_formatting(run.font, notes_config["font"])

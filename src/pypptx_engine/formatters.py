@@ -6,8 +6,8 @@ from __future__ import annotations
 from typing import Any, Dict, Optional, Union
 
 from pptx.dml.color import RGBColor
-from pptx.enum.dml import MSO_COLOR_TYPE, MSO_THEME_COLOR, MSO_FILL_TYPE
-from pptx.enum.text import MSO_VERTICAL_ANCHOR, PP_PARAGRAPH_ALIGNMENT
+from pptx.enum.dml import MSO_COLOR_TYPE, MSO_THEME_COLOR, MSO_FILL_TYPE, MSO_PATTERN_TYPE, MSO_LINE_DASH_STYLE
+from pptx.enum.text import MSO_VERTICAL_ANCHOR, PP_PARAGRAPH_ALIGNMENT, MSO_TEXT_UNDERLINE_TYPE
 from pptx.util import Pt, Inches
 
 
@@ -74,7 +74,17 @@ class ColorFormatter:
                     pass
         elif fill_type == "pattern":
             fill.patterned()
-            # Pattern support would need more implementation
+            pattern_type = fill_config.get("pattern_type", "PERCENT_5")
+            if hasattr(MSO_PATTERN_TYPE, pattern_type):
+                fill.pattern_type = getattr(MSO_PATTERN_TYPE, pattern_type)
+            
+            # Set pattern colors
+            fore_color = ColorFormatter.parse_color(fill_config.get("fore_color"))
+            back_color = ColorFormatter.parse_color(fill_config.get("back_color"))
+            if fore_color:
+                fill.fore_color.rgb = fore_color
+            if back_color:
+                fill.back_color.rgb = back_color
         elif fill_type == "picture":
             # Picture fill would need image path
             pass
@@ -104,7 +114,13 @@ class FontFormatter:
             font.italic = bool(font_config["italic"])
         
         if "underline" in font_config:
-            font.underline = bool(font_config["underline"])
+            underline_type = font_config["underline"]
+            if isinstance(underline_type, bool):
+                font.underline = underline_type
+            elif isinstance(underline_type, str):
+                underline_type = underline_type.upper()
+                if hasattr(MSO_TEXT_UNDERLINE_TYPE, underline_type):
+                    font.underline = getattr(MSO_TEXT_UNDERLINE_TYPE, underline_type)
         
         if "color" in font_config:
             color = ColorFormatter.parse_color(font_config["color"])
@@ -154,7 +170,10 @@ class LineFormatter:
         if "width" in line_config:
             line.width = Pt(line_config["width"])
         
-        # Dash style, arrow heads, etc. could be added here
+        if "dash_style" in line_config:
+            dash_style = line_config["dash_style"].upper()
+            if hasattr(MSO_LINE_DASH_STYLE, dash_style):
+                line.dash_style = getattr(MSO_LINE_DASH_STYLE, dash_style)
 
 
 class ShadowFormatter:

@@ -68,3 +68,20 @@ class PPTXEngine:
             # Convert cm to inches (1 inch = 2.54 cm)
             prs.slide_width = Inches(size_config["width_cm"] / 2.54)
             prs.slide_height = Inches(size_config["height_cm"] / 2.54)
+    
+    def generate_presentation(self, config: Dict[str, Any], output_path: str, base_dir: str = "") -> None:
+        """Generate and save a PowerPoint presentation from JSON configuration."""
+        try:
+            # Create presentation
+            prs = self.create_presentation(config, base_dir)
+            
+            # Ensure output directory exists
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+            
+            # Save presentation
+            prs.save(output_path)
+            print(f"✅ Presentation saved to: {output_path}")
+            
+        except Exception as e:
+            print(f"❌ Error generating presentation: {e}")
+            raise

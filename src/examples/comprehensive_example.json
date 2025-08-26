@@ -490,6 +490,336 @@
             }
           }
         ]
+      },
+      {
+        "layout": 6,
+        "background": "#f8f9fa",
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Advanced Chart Types",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1,
+            "font": {
+              "size": 32,
+              "bold": true,
+              "color": "#2c3e50"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "chart",
+            "chartType": "LINE",
+            "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            "series": [
+              {
+                "name": "Sales Trend",
+                "values": [100, 120, 110, 140, 160, 180]
+              },
+              {
+                "name": "Target",
+                "values": [110, 115, 120, 125, 130, 135]
+              }
+            ],
+            "x": 1,
+            "y": 2,
+            "w": 6.5,
+            "h": 4,
+            "formatting": {
+              "title": "Sales vs Target Trend",
+              "legend": {
+                "visible": true,
+                "position": "bottom"
+              },
+              "data_labels": {
+                "visible": true,
+                "position": "above"
+              },
+              "axes": {
+                "category": {
+                  "title": "Months"
+                },
+                "value": {
+                  "title": "Sales ($K)",
+                  "min_scale": 0,
+                  "max_scale": 200
+                }
+              }
+            }
+          },
+          {
+            "type": "chart",
+            "chartType": "XY_SCATTER",
+            "series": [
+              {
+                "name": "Performance Data",
+                "xy_data": [
+                  [10, 20], [15, 25], [20, 30], [25, 35], [30, 40], [35, 45]
+                ]
+              }
+            ],
+            "x": 8.5,
+            "y": 2,
+            "w": 6.5,
+            "h": 4,
+            "formatting": {
+              "title": "Performance Correlation",
+              "legend": {
+                "visible": true,
+                "position": "right"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": "#ffffff",
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Advanced Text Features",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1,
+            "font": {
+              "size": 32,
+              "bold": true,
+              "color": "#2c3e50"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Click here to visit our website",
+            "x": 2,
+            "y": 2,
+            "w": 6,
+            "h": 1,
+            "font": {
+              "size": 18,
+              "color": "#3498db",
+              "underline": "SINGLE_LINE"
+            },
+            "actions": {
+              "hyperlink": {
+                "url": "https://www.example.com"
+              }
+            }
+          },
+          {
+            "type": "text",
+            "text": "Pattern Fill Example",
+            "x": 9,
+            "y": 2,
+            "w": 5,
+            "h": 1.5,
+            "font": {
+              "size": 20,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "fill": {
+              "type": "pattern",
+              "pattern_type": "PERCENT_25",
+              "fore_color": "#e74c3c",
+              "back_color": "#f39c12"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RIGHT_ARROW",
+            "text": "Enhanced Arrow",
+            "x": 2,
+            "y": 4,
+            "w": 4,
+            "h": 1.5,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#667eea", "position": 0},
+                {"color": "#764ba2", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#2c3e50",
+              "width": 3,
+              "dash_style": "DASH"
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            }
+          }
+        ],
+        "notes": {
+          "text": [
+            "This slide demonstrates advanced text features including:",
+            "- Hyperlinks for interactive content",
+            "- Pattern fills with custom colors",
+            "- Enhanced line styles with dash patterns",
+            "- Advanced underline formatting options"
+          ],
+          "font": {
+            "size": 12,
+            "name": "Calibri"
+          }
+        }
+      },
+      {
+        "layout": 6,
+        "background": "#2c3e50",
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Freeform Shapes & Advanced Features",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1,
+            "font": {
+              "size": 28,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "freeform",
+            "x": 2,
+            "y": 2,
+            "w": 4,
+            "h": 3,
+            "points": [
+              {"action": "move_to", "x": 0, "y": 1.5},
+              {"action": "line_to", "x": 2, "y": 0},
+              {"action": "line_to", "x": 4, "y": 1.5},
+              {"action": "line_to", "x": 2, "y": 3}
+            ],
+            "close_path": true,
+            "fill": {
+              "type": "solid",
+              "color": "#e74c3c"
+            },
+            "line": {
+              "color": "#c0392b",
+              "width": 2
+            }
+          },
+          {
+            "type": "connector",
+            "connector_type": "ELBOW",
+            "x": 6.5,
+            "y": 3,
+            "w": 3.5,
+            "h": 1.5,
+            "begin_x": 6.5,
+            "begin_y": 3,
+            "end_x": 10,
+            "end_y": 4.5,
+            "line": {
+              "color": "#f39c12",
+              "width": 4
+            }
+          },
+          {
+            "type": "chart",
+            "chartType": "BUBBLE",
+            "series": [
+              {
+                "name": "Bubble Data",
+                "bubble_data": [
+                  [10, 20, 5], [15, 25, 8], [20, 30, 12], [25, 35, 6]
+                ]
+              }
+            ],
+            "x": 10.5,
+            "y": 2,
+            "w": 4,
+            "h": 3,
+            "formatting": {
+              "title": "Bubble Chart",
+              "legend": {
+                "visible": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "stops": [
+            {"color": "#667eea", "position": 0},
+            {"color": "#764ba2", "position": 1}
+          ]
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Complete Feature Showcase",
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 1.5,
+            "font": {
+              "size": 36,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "bullet",
+            "items": [
+              "✓ All chart types: Column, Bar, Line, Pie, Area, Scatter, Bubble",
+              "✓ Advanced text formatting with hyperlinks and actions",
+              "✓ Pattern fills, gradients, and solid colors",
+              "✓ Freeform shapes and custom connectors",
+              "✓ Notes slides for speaker notes",
+              "✓ Enhanced line styles and dash patterns",
+              "✓ Professional shadow effects",
+              "✓ Complete python-pptx feature coverage"
+            ],
+            "x": 2,
+            "y": 3,
+            "w": 12,
+            "h": 4,
+            "font": {
+              "size": 16,
+              "color": "#ffffff",
+              "bold": true
+            },
+            "text_frame": {
+              "margin_left": 0.3,
+              "margin_top": 0.2,
+              "vertical_anchor": "top"
+            }
+          }
+        ],
+        "notes": {
+          "text": "This comprehensive example demonstrates all features supported by the enhanced pypptx-engine, providing complete coverage of python-pptx capabilities for professional presentation generation."
+        }
       }
     ]
   }
