@@ -7,7 +7,107 @@
       "keywords": "LLM, AI, machine learning, artificial intelligence"
     },
     "size": { "width_in": 16, "height_in": 9 },
+    "transition": {
+      "type": "fade",
+      "duration": "medium"
+    },
     "slides": [
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "stops": [
+            {"color": "#0d47a1", "position": 0},
+            {"color": "#1976d2", "position": 0.5},
+            {"color": "#42a5f5", "position": 1}
+          ],
+          "angle": 135
+        },
+        "transition": {
+          "type": "fade",
+          "duration": "medium"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "What is LLM?",
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 2.5,
+            "font": {
+              "name": "Segoe UI",
+              "size": 64,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 15,
+              "distance": 5
+            }
+          },
+          {
+            "type": "text",
+            "text": "Large Language Models",
+            "x": 2,
+            "y": 4.5,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Segoe UI",
+              "size": 36,
+              "italic": true,
+              "color": "#e3f2fd"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 8
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "🤖 AI Revolution",
+            "x": 6,
+            "y": 6.5,
+            "w": 4,
+            "h": 1.5,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#00c853", "position": 0},
+                {"color": "#4caf50", "position": 1}
+              ]
+            },
+            "font": {
+              "name": "Segoe UI",
+              "size": 20,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 10
+            },
+            "animation": {
+              "type": "zoom_in",
+              "duration": "fast",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          }
+        ]
+      },
       {
         "layout": 6,
         "background": {
@@ -18,14 +118,14 @@
         "shapes": [
           {
             "type": "text",
-            "text": "What is LLM?",
-            "x": 2,
-            "y": 1.5,
-            "w": 9,
-            "h": 2,
+            "text": "📚 Definition",
+            "x": 1,
+            "y": 0.3,
+            "w": 14,
+            "h": 1.5,
             "font": {
-              "name": "Arial",
-              "size": 56,
+              "name": "Segoe UI",
+              "size": 44,
               "bold": true,
               "color": "#ffffff"
             },
@@ -39,12 +139,33 @@
             }
           },
           {
-            "type": "image",
-            "url": "https://f5b623aa.delivery.rocketcdn.me/wp-content/uploads/2023/06/page-4.jpg",
-            "x": 11.5,
-            "y": 1.5,
-            "w": 2.5,
-            "h": 2,
+            "type": "text",
+            "text": "Large Language Models (LLMs) are advanced AI systems trained on vast amounts of text data to understand and generate human-like language with remarkable accuracy and contextual understanding.",
+            "x": 1.5,
+            "y": 2.2,
+            "w": 13,
+            "h": 2.5,
+            "font": {
+              "name": "Segoe UI",
+              "size": 26,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center",
+              "line_spacing": 1.5
+            },
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1a237e", "position": 0},
+                {"color": "#3949ab", "position": 1}
+              ],
+              "transparency": 0.2
+            },
+            "line": {
+              "color": "#64b5f6",
+              "width": 3
+            },
             "shadow": {
               "visible": true,
               "color": "#000000",
@@ -52,17 +173,75 @@
             }
           },
           {
+            "type": "bullet",
+            "items": [
+              "🧠 Process and understand natural language",
+              "💬 Generate coherent and contextual responses",
+              "⚡ Perform various language-related tasks",
+              "📊 Learn patterns from massive text datasets",
+              "🎯 Adapt to different domains and contexts"
+            ],
+            "x": 1.5,
+            "y": 5.2,
+            "w": 13,
+            "h": 3.5,
+            "font": {
+              "name": "Segoe UI",
+              "size": 22,
+              "color": "#ffffff",
+              "bold": true
+            },
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#0d47a1", "position": 0},
+                {"color": "#1976d2", "position": 1}
+              ],
+              "transparency": 0.15
+            },
+            "line": {
+              "color": "#42a5f5",
+              "width": 2
+            },
+            "text_frame": {
+              "margin_left": 0.4,
+              "margin_top": 0.3,
+              "vertical_anchor": "top"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 6
+            },
+            "animation": {
+              "type": "fly_in_left",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
             "type": "text",
-            "text": "Large Language Models",
-            "x": 2,
-            "y": 3.5,
-            "w": 12,
+            "text": "🚀 Key Capabilities",
+            "x": 1,
+            "y": 0.3,
+            "w": 14,
             "h": 1.5,
             "font": {
-              "name": "Arial",
-              "size": 32,
-              "italic": true,
-              "color": "#e3f2fd"
+              "name": "Segoe UI",
+              "size": 44,
+              "bold": true,
+              "color": "#ffffff"
             },
             "paragraph": {
               "alignment": "center"
@@ -70,130 +249,7 @@
             "shadow": {
               "visible": true,
               "color": "#000000",
-              "blur": 5
-            }
-          }
-        ]
-      },
-      {
-        "layout": 6,
-        "background": {
-          "type": "picture",
-          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
-          "fallback_color": "#1a237e"
-        },
-        "shapes": [
-          {
-            "type": "text",
-            "text": "Definition",
-            "x": 1,
-            "y": 0.5,
-            "w": 14,
-            "h": 1.2,
-            "font": {
-              "size": 40,
-              "bold": true,
-              "color": "#ffffff"
-            },
-            "paragraph": {
-              "alignment": "center"
-            },
-            "shadow": {
-              "visible": true,
-              "color": "#000000"
-            }
-          },
-          {
-            "type": "text",
-            "text": "Large Language Models (LLMs) are advanced AI systems trained on vast amounts of text data to understand and generate human-like language.",
-            "x": 2,
-            "y": 2.5,
-            "w": 12,
-            "h": 2,
-            "font": {
-              "name": "Calibri",
-              "size": 24,
-              "color": "#ffffff"
-            },
-            "paragraph": {
-              "alignment": "center",
-              "line_spacing": 1.4
-            },
-            "fill": {
-              "type": "solid",
-              "color": "#1a237e",
-              "transparency": 0.3
-            },
-            "line": {
-              "color": "#64b5f6",
-              "width": 2
-            },
-            "shadow": {
-              "visible": true,
-              "color": "#000000"
-            }
-          },
-          {
-            "type": "bullet",
-            "items": [
-              "Process and understand natural language",
-              "Generate coherent and contextual responses",
-              "Perform various language-related tasks",
-              "Learn patterns from massive text datasets"
-            ],
-            "x": 2,
-            "y": 5,
-            "w": 12,
-            "h": 3,
-            "font": {
-              "name": "Calibri",
-              "size": 20,
-              "color": "#ffffff",
-              "bold": true
-            },
-            "fill": {
-              "type": "solid",
-              "color": "#0d47a1",
-              "transparency": 0.2
-            },
-            "line": {
-              "color": "#42a5f5",
-              "width": 1
-            },
-            "text_frame": {
-              "margin_left": 0.3,
-              "margin_top": 0.2,
-              "vertical_anchor": "top"
-            }
-          }
-        ]
-      },
-      {
-        "layout": 6,
-        "background": {
-          "type": "picture",
-          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
-          "fallback_color": "#1a237e"
-        },
-        "shapes": [
-          {
-            "type": "text",
-            "text": "Key Capabilities",
-            "x": 1,
-            "y": 0.5,
-            "w": 14,
-            "h": 1.2,
-            "font": {
-              "size": 40,
-              "bold": true,
-              "color": "#ffffff"
-            },
-            "paragraph": {
-              "alignment": "center"
-            },
-            "shadow": {
-              "visible": true,
-              "color": "#000000"
+              "blur": 12
             }
           },
           {

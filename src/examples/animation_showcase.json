@@ -1,0 +1,474 @@
+{
+  "title": "Animation Showcase",
+  "author": "pypptx-engine",
+  "subject": "Flexible Animation System Demo",
+  "slides": [
+    {
+      "title": "🎬 Animation Showcase",
+      "layout": "title_slide",
+      "background": {
+        "type": "gradient",
+        "colors": ["#1e3c72", "#2a5298"],
+        "direction": "diagonal"
+      },
+      "transition": {
+        "type": "fade",
+        "duration": 1.0
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "🎬 Animation Showcase",
+          "position": {"x": 1, "y": 2, "width": 8, "height": 2},
+          "font": {"size": 44, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_fade_in",
+            "duration": 1.5,
+            "delay": 0.5,
+            "trigger": "on_click"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Demonstrating Flexible Animation System",
+          "position": {"x": 1, "y": 4.5, "width": 8, "height": 1},
+          "font": {"size": 24, "color": "#e0e0e0"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_fly_in_from_bottom",
+            "duration": 1.0,
+            "delay": 2.0,
+            "trigger": "after_previous"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Motion Animations",
+      "layout": "content",
+      "background": {
+        "type": "solid",
+        "color": "#f8f9fa"
+      },
+      "transition": {
+        "type": "push_left",
+        "duration": 0.8
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Motion Animations",
+          "position": {"x": 0.5, "y": 0.5, "width": 9, "height": 1},
+          "font": {"size": 36, "bold": true, "color": "#2c3e50"},
+          "alignment": "center"
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 1, "y": 2, "width": 1.5, "height": 1},
+          "fill": {"color": "#e74c3c"},
+          "border": {"width": 2, "color": "#c0392b"},
+          "animation": {
+            "type": "motion_right",
+            "duration": 2.0,
+            "delay": 0.5,
+            "trigger": "on_click",
+            "custom": {
+              "distance": 3.0,
+              "easing": "ease_in_out"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "→ Right",
+          "position": {"x": 1, "y": 3.2, "width": 1.5, "height": 0.5},
+          "font": {"size": 14, "color": "#7f8c8d"},
+          "alignment": "center"
+        },
+        {
+          "type": "circle",
+          "position": {"x": 6, "y": 2, "width": 1.5, "height": 1},
+          "fill": {"color": "#3498db"},
+          "border": {"width": 2, "color": "#2980b9"},
+          "animation": {
+            "type": "motion_up",
+            "duration": 1.5,
+            "delay": 1.0,
+            "trigger": "after_previous",
+            "custom": {
+              "distance": 2.0,
+              "repeat": 2,
+              "reverse": true
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "↑ Up & Back",
+          "position": {"x": 6, "y": 3.2, "width": 1.5, "height": 0.5},
+          "font": {"size": 14, "color": "#7f8c8d"},
+          "alignment": "center"
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 3.5, "y": 4.5, "width": 1.5, "height": 1},
+          "fill": {"color": "#f39c12"},
+          "border": {"width": 2, "color": "#e67e22"},
+          "animation": {
+            "type": "motion_diagonal",
+            "duration": 2.5,
+            "delay": 2.5,
+            "trigger": "after_previous",
+            "custom": {
+              "direction": "up_right",
+              "distance": 2.5
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "↗ Diagonal",
+          "position": {"x": 3.5, "y": 5.7, "width": 1.5, "height": 0.5},
+          "font": {"size": 14, "color": "#7f8c8d"},
+          "alignment": "center"
+        }
+      ]
+    },
+    {
+      "title": "Entrance Effects",
+      "layout": "content",
+      "background": {
+        "type": "gradient",
+        "colors": ["#667eea", "#764ba2"],
+        "direction": "vertical"
+      },
+      "transition": {
+        "type": "cover_right",
+        "duration": 1.0
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Entrance Effects",
+          "position": {"x": 0.5, "y": 0.5, "width": 9, "height": 1},
+          "font": {"size": 36, "bold": true, "color": "#ffffff"},
+          "alignment": "center"
+        },
+        {
+          "type": "text",
+          "content": "Fade In",
+          "position": {"x": 1, "y": 2, "width": 2, "height": 0.8},
+          "font": {"size": 20, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#e74c3c"},
+          "animation": {
+            "type": "entrance_fade_in",
+            "duration": 1.0,
+            "delay": 0.5,
+            "trigger": "on_click"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Fly In from Left",
+          "position": {"x": 4, "y": 2, "width": 2, "height": 0.8},
+          "font": {"size": 20, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#3498db"},
+          "animation": {
+            "type": "entrance_fly_in_from_left",
+            "duration": 1.2,
+            "delay": 1.5,
+            "trigger": "after_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Zoom In",
+          "position": {"x": 7, "y": 2, "width": 2, "height": 0.8},
+          "font": {"size": 20, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#f39c12"},
+          "animation": {
+            "type": "entrance_zoom_in",
+            "duration": 0.8,
+            "delay": 2.7,
+            "trigger": "after_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Bounce In",
+          "position": {"x": 2.5, "y": 4, "width": 2, "height": 0.8},
+          "font": {"size": 20, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#9b59b6"},
+          "animation": {
+            "type": "entrance_bounce_in",
+            "duration": 1.5,
+            "delay": 3.5,
+            "trigger": "after_previous",
+            "custom": {
+              "easing": "bounce"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Spiral In",
+          "position": {"x": 5.5, "y": 4, "width": 2, "height": 0.8},
+          "font": {"size": 20, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#1abc9c"},
+          "animation": {
+            "type": "entrance_spiral_in",
+            "duration": 2.0,
+            "delay": 5.0,
+            "trigger": "after_previous"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Emphasis Effects",
+      "layout": "content",
+      "background": {
+        "type": "solid",
+        "color": "#2c3e50"
+      },
+      "transition": {
+        "type": "fade",
+        "duration": 0.6
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Emphasis Effects",
+          "position": {"x": 0.5, "y": 0.5, "width": 9, "height": 1},
+          "font": {"size": 36, "bold": true, "color": "#ecf0f1"},
+          "alignment": "center"
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 1.5, "y": 2.5, "width": 2, "height": 1.5},
+          "fill": {"color": "#e74c3c"},
+          "border": {"width": 3, "color": "#c0392b"},
+          "animation": {
+            "type": "emphasis_pulse",
+            "duration": 1.0,
+            "delay": 0.5,
+            "trigger": "on_click",
+            "custom": {
+              "repeat": 3,
+              "scale": 1.2
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Pulse",
+          "position": {"x": 1.5, "y": 4.2, "width": 2, "height": 0.5},
+          "font": {"size": 16, "color": "#bdc3c7"},
+          "alignment": "center"
+        },
+        {
+          "type": "circle",
+          "position": {"x": 4, "y": 2.5, "width": 2, "height": 1.5},
+          "fill": {"color": "#3498db"},
+          "border": {"width": 3, "color": "#2980b9"},
+          "animation": {
+            "type": "emphasis_shake",
+            "duration": 0.8,
+            "delay": 1.5,
+            "trigger": "after_previous",
+            "custom": {
+              "intensity": "medium"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Shake",
+          "position": {"x": 4, "y": 4.2, "width": 2, "height": 0.5},
+          "font": {"size": 16, "color": "#bdc3c7"},
+          "alignment": "center"
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 6.5, "y": 2.5, "width": 2, "height": 1.5},
+          "fill": {"color": "#f39c12"},
+          "border": {"width": 3, "color": "#e67e22"},
+          "animation": {
+            "type": "emphasis_spin",
+            "duration": 1.5,
+            "delay": 2.3,
+            "trigger": "after_previous",
+            "custom": {
+              "rotations": 2,
+              "direction": "clockwise"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Spin",
+          "position": {"x": 6.5, "y": 4.2, "width": 2, "height": 0.5},
+          "font": {"size": 16, "color": "#bdc3c7"},
+          "alignment": "center"
+        }
+      ]
+    },
+    {
+      "title": "Custom Animation",
+      "layout": "content",
+      "background": {
+        "type": "gradient",
+        "colors": ["#ff9a9e", "#fecfef", "#fecfef"],
+        "direction": "radial"
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.2
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Custom Animation XML",
+          "position": {"x": 0.5, "y": 0.5, "width": 9, "height": 1},
+          "font": {"size": 36, "bold": true, "color": "#2c3e50"},
+          "alignment": "center"
+        },
+        {
+          "type": "text",
+          "content": "Advanced users can provide custom PowerPoint XML for complete control over animations",
+          "position": {"x": 1, "y": 1.8, "width": 8, "height": 1},
+          "font": {"size": 18, "color": "#34495e"},
+          "alignment": "center"
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 3.5, "y": 3, "width": 3, "height": 2},
+          "fill": {
+            "type": "gradient",
+            "colors": ["#667eea", "#764ba2"],
+            "direction": "diagonal"
+          },
+          "border": {"width": 2, "color": "#5a67d8"},
+          "shadow": {
+            "color": "#000000",
+            "blur": 10,
+            "offset": {"x": 5, "y": 5},
+            "transparency": 0.3
+          },
+          "animation": {
+            "type": "custom",
+            "duration": 3.0,
+            "delay": 1.0,
+            "trigger": "on_click",
+            "custom": {
+              "xml_template": "<p:anim from=\"#ppt_x\" to=\"#ppt_x+2\" calcmode=\"lin\" valueType=\"num\"><p:cBhvr override=\"childStyle\"><p:cTn id=\"{shape_id}\" dur=\"{duration_ms}\" fill=\"hold\"/><p:tgtEl><p:spTgt spid=\"{shape_id}\"/></p:tgtEl><p:attrNameLst><p:attrName>ppt_x</p:attrName></p:attrNameLst></p:cBhvr></p:anim>",
+              "description": "Custom horizontal slide with XML template"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "content": "Custom XML Animation",
+          "position": {"x": 3.5, "y": 5.2, "width": 3, "height": 0.5},
+          "font": {"size": 16, "bold": true, "color": "#2c3e50"},
+          "alignment": "center"
+        }
+      ]
+    },
+    {
+      "title": "Animation Timing",
+      "layout": "content",
+      "background": {
+        "type": "solid",
+        "color": "#ecf0f1"
+      },
+      "transition": {
+        "type": "wipe_right",
+        "duration": 0.8
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Animation Timing & Triggers",
+          "position": {"x": 0.5, "y": 0.5, "width": 9, "height": 1},
+          "font": {"size": 32, "bold": true, "color": "#2c3e50"},
+          "alignment": "center"
+        },
+        {
+          "type": "text",
+          "content": "Click to Start",
+          "position": {"x": 1, "y": 2, "width": 2.5, "height": 0.8},
+          "font": {"size": 16, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#e74c3c"},
+          "animation": {
+            "type": "entrance_fade_in",
+            "duration": 0.8,
+            "delay": 0,
+            "trigger": "on_click"
+          }
+        },
+        {
+          "type": "text",
+          "content": "After Previous (1s delay)",
+          "position": {"x": 3.75, "y": 2, "width": 2.5, "height": 0.8},
+          "font": {"size": 16, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#3498db"},
+          "animation": {
+            "type": "entrance_fly_in_from_right",
+            "duration": 1.0,
+            "delay": 1.0,
+            "trigger": "after_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "With Previous",
+          "position": {"x": 6.5, "y": 2, "width": 2.5, "height": 0.8},
+          "font": {"size": 16, "bold": true, "color": "#ffffff"},
+          "alignment": "center",
+          "fill": {"color": "#f39c12"},
+          "animation": {
+            "type": "entrance_zoom_in",
+            "duration": 1.2,
+            "delay": 0.5,
+            "trigger": "with_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Sequential Animations",
+          "position": {"x": 2, "y": 4, "width": 6, "height": 1},
+          "font": {"size": 24, "bold": true, "color": "#34495e"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_bounce_in",
+            "duration": 1.5,
+            "delay": 3.0,
+            "trigger": "after_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "• on_click: Waits for user click\n• after_previous: Starts after previous animation\n• with_previous: Starts with previous animation",
+          "position": {"x": 1, "y": 5.2, "width": 8, "height": 1.5},
+          "font": {"size": 14, "color": "#7f8c8d"},
+          "alignment": "left",
+          "animation": {
+            "type": "entrance_fade_in",
+            "duration": 2.0,
+            "delay": 4.5,
+            "trigger": "after_previous"
+          }
+        }
+      ]
+    }
+  ]
+}

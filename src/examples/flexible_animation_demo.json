@@ -1,165 +1,147 @@
 {
-  "presentation": {
-    "properties": {
-      "title": "Flexible Animation System Demo",
-      "author": "pypptx-engine"
-    },
-    "size": { "width_in": 16, "height_in": 9 },
-    "slides": [
-      {
-        "layout": 6,
-        "background": "#f8f9fa",
-        "shapes": [
-          {
-            "type": "text",
-            "text": "Flexible Animation System",
-            "x": 2,
-            "y": 1,
-            "w": 12,
-            "h": 1.5,
-            "font": {
-              "name": "Arial",
-              "size": 36,
-              "bold": true,
-              "color": "#2c3e50"
-            },
-            "animation": {
-              "type": "fade_in",
-              "duration": "fast",
-              "trigger": "on_click",
-              "delay": 0
-            }
-          },
-          {
-            "type": "autoshape",
-            "shape_type": "RECTANGLE",
-            "text": "Basic Motion",
-            "x": 1,
-            "y": 3,
-            "w": 3,
-            "h": 1.5,
-            "fill": { "color": "#3498db" },
-            "font": { "color": "#ffffff", "bold": true },
-            "animation": {
-              "type": "move_right",
-              "duration": "medium",
-              "trigger": "after_previous",
-              "delay": 0.5
-            }
-          },
-          {
-            "type": "autoshape",
-            "shape_type": "CIRCLE",
-            "text": "Custom Motion",
-            "x": 6,
-            "y": 3,
-            "w": 3,
-            "h": 1.5,
-            "fill": { "color": "#e74c3c" },
-            "font": { "color": "#ffffff", "bold": true },
-            "animation": {
-              "type": "move_left",
-              "duration": "slow",
-              "trigger": "after_previous",
-              "delay": 0.3,
-              "custom": {
-                "from": "#ppt_x",
-                "to": "#ppt_x-0.5",
-                "attr": "ppt_x",
-                "easing": "spline"
-              }
-            }
-          },
-          {
-            "type": "autoshape",
-            "shape_type": "TRIANGLE",
-            "text": "Custom Animation",
-            "x": 11,
-            "y": 3,
-            "w": 3,
-            "h": 1.5,
-            "fill": { "color": "#27ae60" },
-            "font": { "color": "#ffffff", "bold": true },
-            "animation": {
-              "type": "custom_effect",
-              "duration": 2.0,
-              "trigger": "after_previous",
-              "delay": 0.2,
-              "custom": {
-                "from": "#ppt_y",
-                "to": "#ppt_y-0.3",
-                "attr": "ppt_y",
-                "easing": "bounce"
-              }
-            }
-          },
-          {
-            "type": "autoshape",
-            "shape_type": "STAR_5_POINT",
-            "text": "Entrance Effect",
-            "x": 2,
-            "y": 6,
-            "w": 3,
-            "h": 1.5,
-            "fill": { "color": "#f39c12" },
-            "font": { "color": "#ffffff", "bold": true },
-            "animation": {
-              "type": "fly_in_left",
-              "duration": "fast",
-              "trigger": "after_previous",
-              "delay": 0.1,
-              "custom": {
-                "preset_id": "2",
-                "preset_subtype": "8",
-                "transition": "in",
-                "filter": "slide"
-              }
-            }
-          },
-          {
-            "type": "autoshape",
-            "shape_type": "DIAMOND",
-            "text": "Emphasis Effect",
-            "x": 6.5,
-            "y": 6,
-            "w": 3,
-            "h": 1.5,
-            "fill": { "color": "#9b59b6" },
-            "font": { "color": "#ffffff", "bold": true },
-            "animation": {
-              "type": "pulse",
-              "duration": "medium",
-              "trigger": "after_previous",
-              "delay": 0.2,
-              "repeat": 2,
-              "custom": {
-                "filter": "pulse",
-                "transition": "emphasis"
-              }
-            }
-          },
-          {
-            "type": "autoshape",
-            "shape_type": "HEXAGON",
-            "text": "Full Custom XML",
-            "x": 11,
-            "y": 6,
-            "w": 3,
-            "h": 1.5,
-            "fill": { "color": "#34495e" },
-            "font": { "color": "#ffffff", "bold": true },
-            "animation": {
-              "type": "custom_xml",
-              "duration": 1.5,
-              "trigger": "after_previous",
-              "delay": 0.1,
-              "custom": {
-                "xml_template": "<p:timing xmlns:p=\"http://schemas.openxmlformats.org/presentationml/2006/main\"><p:tnLst><p:par><p:cTn id=\"1\" dur=\"indefinite\" restart=\"never\" nodeType=\"tmRoot\"><p:childTnLst><p:seq concurrent=\"1\" nextAc=\"seek\"><p:cTn id=\"2\" dur=\"indefinite\" nodeType=\"mainSeq\"><p:childTnLst><p:par><p:cTn id=\"5\" fill=\"hold\" grpId=\"0\" nodeType=\"clickEffect\"><p:stCondLst><p:cond evt=\"{trigger}\" delay=\"{delay}\"/></p:stCondLst><p:childTnLst><p:anim from=\"#ppt_x\" to=\"#ppt_x+0.2\" calcmode=\"spline\" valueType=\"num\"><p:cBhvr><p:cTn id=\"6\" dur=\"{duration}\" fill=\"hold\"/><p:tgtEl><p:spTgt spid=\"{shape_id}\"/></p:tgtEl><p:attrNameLst><p:attrName>ppt_x</p:attrName></p:attrNameLst></p:cBhvr></p:anim></p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:seq></p:childTnLst></p:cTn></p:par></p:tnLst><p:bldLst><p:bldP spid=\"{shape_id}\" grpId=\"0\" animBg=\"1\"/></p:bldLst></p:timing>"
-              }
+  "title": "Flexible Animation Demo",
+  "author": "pypptx-engine",
+  "subject": "Demonstrating flexible animation system capabilities",
+  "slides": [
+    {
+      "title": "Motion Animations Demo",
+      "layout": "content",
+      "background": {
+        "type": "gradient",
+        "colors": ["#667eea", "#764ba2"],
+        "direction": "diagonal"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Motion Animation Examples",
+          "position": {"x": 1, "y": 0.5, "width": 8, "height": 1},
+          "font": {"size": 32, "bold": true, "color": "#ffffff"},
+          "alignment": "center"
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 1, "y": 2, "width": 1.5, "height": 1},
+          "fill": {"color": "#e74c3c"},
+          "animation": {
+            "type": "motion_right",
+            "duration": 2.0,
+            "delay": 0.5,
+            "trigger": "on_click",
+            "custom": {
+              "distance": 3.0,
+              "easing": "ease_in_out"
             }
           }
-        ]
-      }
-    ]
-  }
+        },
+        {
+          "type": "circle",
+          "position": {"x": 6, "y": 2, "width": 1.5, "height": 1},
+          "fill": {"color": "#3498db"},
+          "animation": {
+            "type": "motion_up",
+            "duration": 1.5,
+            "delay": 1.0,
+            "trigger": "after_previous",
+            "custom": {
+              "distance": 2.0,
+              "repeat": 2,
+              "reverse": true
+            }
+          }
+        },
+        {
+          "type": "rectangle",
+          "position": {"x": 3.5, "y": 4, "width": 1.5, "height": 1},
+          "fill": {"color": "#f39c12"},
+          "animation": {
+            "type": "motion_diagonal",
+            "duration": 2.5,
+            "delay": 0.5,
+            "trigger": "on_click",
+            "custom": {
+              "direction": "up_right",
+              "distance": 2.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Entrance Effects Demo",
+      "layout": "content",
+      "background": {
+        "type": "solid",
+        "color": "#2c3e50"
+      },
+      "elements": [
+        {
+          "type": "text",
+          "content": "Entrance Animation Examples",
+          "position": {"x": 1, "y": 0.5, "width": 8, "height": 1},
+          "font": {"size": 32, "bold": true, "color": "#ecf0f1"},
+          "alignment": "center"
+        },
+        {
+          "type": "text",
+          "content": "Fade In Effect",
+          "position": {"x": 1, "y": 2, "width": 3, "height": 1},
+          "font": {"size": 18, "bold": true, "color": "#ffffff"},
+          "fill": {"color": "#e74c3c"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_fade_in",
+            "duration": 1.5,
+            "delay": 0.5,
+            "trigger": "on_click"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Fly In from Left",
+          "position": {"x": 5, "y": 2, "width": 3, "height": 1},
+          "font": {"size": 18, "bold": true, "color": "#ffffff"},
+          "fill": {"color": "#3498db"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_fly_in_from_left",
+            "duration": 1.2,
+            "delay": 1.0,
+            "trigger": "after_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Zoom In Effect",
+          "position": {"x": 1, "y": 4, "width": 3, "height": 1},
+          "font": {"size": 18, "bold": true, "color": "#ffffff"},
+          "fill": {"color": "#f39c12"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_zoom_in",
+            "duration": 1.0,
+            "delay": 0.8,
+            "trigger": "after_previous"
+          }
+        },
+        {
+          "type": "text",
+          "content": "Bounce In Effect",
+          "position": {"x": 5, "y": 4, "width": 3, "height": 1},
+          "font": {"size": 18, "bold": true, "color": "#ffffff"},
+          "fill": {"color": "#9b59b6"},
+          "alignment": "center",
+          "animation": {
+            "type": "entrance_bounce_in",
+            "duration": 1.5,
+            "delay": 1.2,
+            "trigger": "after_previous",
+            "custom": {
+              "easing": "bounce"
+            }
+          }
+        }
+      ]
+    }
+  ]
 }
