@@ -1,0 +1,92 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "Creative Presentation",
+      "author": "PPTX Engine",
+      "template": "creative",
+      "theme": "purple"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "transition": {
+          "type": "rotate",
+          "duration": "medium"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Creative Solutions",
+            "animation": {
+              "type": "bounce",
+              "duration": "medium",
+              "trigger": "on_click"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "Think outside the box",
+              "Innovative approaches",
+              "Artistic excellence"
+            ],
+            "animation": {
+              "type": "swivel",
+              "duration": "fast",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400",
+            "x": 12,
+            "y": 1.5,
+            "w": 3,
+            "h": 2.5,
+            "animation": {
+              "type": "spin",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.7
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "transition": {
+          "type": "flash",
+          "duration": "fast"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Portfolio Showcase",
+            "animation": {
+              "type": "grow_and_turn",
+              "duration": "medium",
+              "trigger": "on_click"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "Award-winning designs",
+              "Client testimonials",
+              "Creative process insights",
+              "Future projects"
+            ],
+            "animation": {
+              "type": "fade_in",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.5
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -19,7 +19,7 @@ class SlideManager:
     def __init__(self, color_formatter):
         self.color_formatter = color_formatter
     
-    def create_slide(self, prs: Presentation, slide_config: Dict[str, Any], base_dir: str, shape_factory) -> None:
+    def create_slide(self, prs: Presentation, slide_config: Dict[str, Any], base_dir: str, shape_factory):
         """Create a slide with specified layout and content."""
         layout_index = slide_config.get("layout", 6)  # Default to blank layout
         slide = prs.slides.add_slide(prs.slide_layouts[layout_index])
@@ -40,6 +40,8 @@ class SlideManager:
         notes_config = slide_config.get("notes")
         if notes_config:
             self._add_notes_slide(slide, notes_config)
+        
+        return slide
     
     def _apply_background(self, slide, background_config) -> None:
         """Apply background formatting to slide."""

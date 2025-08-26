@@ -12,6 +12,8 @@ from pptx.util import Inches
 from .formatters import ColorFormatter
 from .shapes import ShapeFactory
 from .slides import SlideManager
+from .templates import TemplateManager
+from .animations import AnimationManager
 
 
 class PPTXEngine:
@@ -21,10 +23,20 @@ class PPTXEngine:
         self.color_formatter = ColorFormatter()
         self.shape_factory = ShapeFactory(self.color_formatter)
         self.slide_manager = SlideManager(self.color_formatter)
+        self.template_manager = TemplateManager()
+        self.animation_manager = AnimationManager()
     
     def create_presentation(self, config: Dict[str, Any], base_dir: str = "") -> Presentation:
         """Create a PowerPoint presentation from JSON configuration."""
         pres_config = config.get("presentation", {})
+        
+        # Apply template and theme if specified
+        template_name = pres_config.get("properties", {}).get("template")
+        theme_name = pres_config.get("properties", {}).get("theme")
+        
+        if template_name:
+            config = self.template_manager.apply_template_to_config(config, template_name, theme_name)
+            pres_config = config.get("presentation", {})
         
         # Create presentation
         prs = Presentation()
@@ -37,7 +49,20 @@ class PPTXEngine:
         
         # Create slides
         for slide_config in pres_config.get("slides", []):
-            self.slide_manager.create_slide(prs, slide_config, base_dir, self.shape_factory)
+            slide = self.slide_manager.create_slide(prs, slide_config, base_dir, self.shape_factory)
+            
+            # Apply slide transitions
+            if "transition" in slide_config:
+                self.animation_manager.apply_slide_transition(slide, slide_config["transition"])
+            
+            # Apply shape animations
+            for shape_config in slide_config.get("shapes", []):
+                if "animation" in shape_config:
+                    # Find the corresponding shape that was created
+                    shape_index = slide_config.get("shapes", []).index(shape_config)
+                    if shape_index < len(slide.shapes):
+                        shape = slide.shapes[shape_index]
+                        self.animation_manager.apply_shape_animation(shape, shape_config["animation"])
         
         return prs
     
