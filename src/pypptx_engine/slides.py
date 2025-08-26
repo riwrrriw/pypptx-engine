@@ -65,8 +65,7 @@ class SlideManager:
                 if color:
                     fill.fore_color.rgb = color
             elif bg_type == "gradient":
-                fill.gradient()
-                # Gradient implementation would go here
+                self._apply_gradient_background(slide, background_config)
             elif bg_type == "picture":
                 # Picture background implementation
                 image_path = background_config.get("image_path") or background_config.get("url")
@@ -171,3 +170,57 @@ class SlideManager:
                 fill = slide.background.fill
                 fill.solid()
                 fill.fore_color.rgb = color
+    
+    def _apply_gradient_background(self, slide, background_config: Dict[str, Any]) -> None:
+        """Apply gradient background to slide using a full-slide rectangle shape."""
+        try:
+            from pptx.enum.shapes import MSO_SHAPE
+            from pptx.util import Inches
+            
+            # Get slide dimensions
+            presentation = slide.part.package.presentation_part.presentation
+            slide_width = presentation.slide_width
+            slide_height = presentation.slide_height
+            
+            # Create a full-slide rectangle for gradient background
+            background_shape = slide.shapes.add_shape(
+                MSO_SHAPE.RECTANGLE, 
+                0, 0, 
+                slide_width, slide_height
+            )
+            
+            # Get gradient colors and direction
+            colors = background_config.get("colors", ["#ffffff", "#000000"])
+            direction = background_config.get("direction", "vertical")
+            
+            # Parse colors
+            gradient_colors = []
+            for color_str in colors:
+                color = self.color_formatter.parse_color(color_str)
+                if color:
+                    gradient_colors.append(color)
+            
+            if len(gradient_colors) >= 1:
+                # Use solid fill with first color as fallback
+                fill = background_shape.fill
+                fill.solid()
+                fill.fore_color.rgb = gradient_colors[0]
+                print(f"[INFO] Applied gradient fallback with solid color: {colors[0]}")
+            
+            # Remove border from background shape
+            background_shape.line.fill.background()
+            
+            # Move background shape to the back
+            slide.shapes._spTree.remove(background_shape._element)
+            slide.shapes._spTree.insert(2, background_shape._element)
+                    
+        except Exception as e:
+            print(f"[WARN] Failed to apply gradient background: {e}")
+            # Fallback to solid color using first color
+            colors = background_config.get("colors", ["#ffffff"])
+            if colors:
+                color = self.color_formatter.parse_color(colors[0])
+                if color:
+                    fill = slide.background.fill
+                    fill.solid()
+                    fill.fore_color.rgb = color

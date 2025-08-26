@@ -1,0 +1,657 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "CardX Credit Cards - Product Introduction",
+      "author": "CardX Co., Ltd.",
+      "subject": "CardX Credit Cards Product Introduction"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "colors": ["#2c3e50", "#34495e"],
+          "direction": "radial"
+        },
+        "transition": {
+          "type": "fade",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "CardX Credit Cards",
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 56,
+              "bold": true,
+              "color": "#5B2C6F"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Your Lifestyle, Your Credit Freedom",
+            "x": 1,
+            "y": 2.5,
+            "w": 14,
+            "h": 1,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 28,
+              "color": "#1A5276"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+            "x": 2,
+            "y": 4,
+            "w": 5,
+            "h": 3
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 8,
+            "y": 4,
+            "w": 7,
+            "h": 3,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#00000015", "blur": 8, "distance": 2}
+          },
+          {
+            "type": "text",
+            "text": [
+              "✓ 8 Premium Card Options",
+              "✓ SCBX Group - Trusted Partner",
+              "✓ Global Acceptance: VISA, MasterCard, JCB",
+              "✓ Credit Limit: Up to 5× Monthly Income"
+            ],
+            "x": 8.5,
+            "y": 4.5,
+            "w": 6,
+            "h": 2,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 18,
+              "color": "#2c3e50"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "line_spacing": 1.4
+            }
+          },
+          {
+            "type": "text",
+            "text": "BEYOND • MY TRAVEL • ULTRA PLATINUM • KING POWER • TOYOTA • FAMILY PLUS • UP2ME • JCB PLATINUM",
+            "x": 1,
+            "y": 7.5,
+            "w": 14,
+            "h": 1,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 14,
+              "bold": true,
+              "color": "#5B2C6F"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "colors": ["#8e44ad", "#9b59b6"],
+          "direction": "vertical"
+        },
+        "transition": {
+          "type": "push",
+          "direction": "left",
+          "duration": 0.8
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Benefits That Fit Every Lifestyle",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#1A5276"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 1,
+            "y": 2.5,
+            "w": 3.5,
+            "h": 4,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#00000020", "blur": 10, "distance": 3}
+          },
+          {
+            "type": "text",
+            "text": "✈️",
+            "x": 2.5,
+            "y": 3,
+            "w": 0.5,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 36}
+          },
+          {
+            "type": "text",
+            "text": "Travel Rewards",
+            "x": 1.2,
+            "y": 4,
+            "w": 3.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#1A5276"}
+          },
+          {
+            "type": "text",
+            "text": "Up to 51 days interest-free repayment",
+            "x": 1.2,
+            "y": 4.6,
+            "w": 3.1,
+            "h": 1.2,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 5,
+            "y": 2.5,
+            "w": 3.5,
+            "h": 4,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#00000020", "blur": 10, "distance": 3}
+          },
+          {
+            "type": "text",
+            "text": "💰",
+            "x": 6.5,
+            "y": 3,
+            "w": 0.5,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 36}
+          },
+          {
+            "type": "text",
+            "text": "Cash Freedom",
+            "x": 5.2,
+            "y": 4,
+            "w": 3.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#1A5276"}
+          },
+          {
+            "type": "text",
+            "text": "100% cash withdrawal of remaining limit",
+            "x": 5.2,
+            "y": 4.6,
+            "w": 3.1,
+            "h": 1.2,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 9,
+            "y": 2.5,
+            "w": 3.5,
+            "h": 4,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#00000020", "blur": 10, "distance": 3}
+          },
+          {
+            "type": "text",
+            "text": "🌟",
+            "x": 10.5,
+            "y": 3,
+            "w": 0.5,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 36}
+          },
+          {
+            "type": "text",
+            "text": "Premium Perks",
+            "x": 9.2,
+            "y": 4,
+            "w": 3.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#1A5276"}
+          },
+          {
+            "type": "text",
+            "text": "Exclusive benefits for travelers & families",
+            "x": 9.2,
+            "y": 4.6,
+            "w": 3.1,
+            "h": 1.2,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 13,
+            "y": 2.5,
+            "w": 3.5,
+            "h": 4,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#00000020", "blur": 10, "distance": 3}
+          },
+          {
+            "type": "text",
+            "text": "📱",
+            "x": 14.5,
+            "y": 3,
+            "w": 0.5,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 36}
+          },
+          {
+            "type": "text",
+            "text": "Mobile App",
+            "x": 13.2,
+            "y": 4,
+            "w": 3.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#1A5276"}
+          },
+          {
+            "type": "text",
+            "text": "Real-time tracking & instant control",
+            "x": 13.2,
+            "y": 4.6,
+            "w": 3.1,
+            "h": 1.2,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "colors": ["#e74c3c", "#c0392b"],
+          "direction": "diagonal"
+        },
+        "transition": {
+          "type": "slide",
+          "direction": "up",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Transparent Rates & Charges",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#117864"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "table",
+            "x": 2,
+            "y": 2.5,
+            "w": 12,
+            "h": 4,
+            "rows": 6,
+            "cols": 3,
+            "data": [
+              [
+                {"text": "Card Type", "formatting": {"fill": {"type": "solid", "color": "#117864"}, "font": {"bold": true, "color": "#ffffff", "size": 16}}},
+                {"text": "Annual Fee", "formatting": {"fill": {"type": "solid", "color": "#117864"}, "font": {"bold": true, "color": "#ffffff", "size": 16}}},
+                {"text": "Key Benefits", "formatting": {"fill": {"type": "solid", "color": "#117864"}, "font": {"bold": true, "color": "#ffffff", "size": 16}}}
+              ],
+              [
+                {"text": "BEYOND / ULTRA PLATINUM", "formatting": {"font": {"bold": true, "color": "#2c3e50", "size": 14}}},
+                {"text": "฿5,000/year", "formatting": {"font": {"bold": true, "color": "#E67E22", "size": 14}}},
+                {"text": "Premium travel & lifestyle", "formatting": {"font": {"color": "#2c3e50", "size": 14}}}
+              ],
+              [
+                {"text": "KING POWER / TOYOTA", "formatting": {"font": {"bold": true, "color": "#2c3e50", "size": 14}}},
+                {"text": "฿2,000-฿3,000/year", "formatting": {"font": {"bold": true, "color": "#E67E22", "size": 14}}},
+                {"text": "Shopping & automotive perks", "formatting": {"font": {"color": "#2c3e50", "size": 14}}}
+              ],
+              [
+                {"text": "UP2ME / JCB PLATINUM", "formatting": {"font": {"bold": true, "color": "#2c3e50", "size": 14}}},
+                {"text": "FREE", "formatting": {"font": {"bold": true, "color": "#117864", "size": 14}}},
+                {"text": "No annual fee benefits", "formatting": {"font": {"color": "#2c3e50", "size": 14}}}
+              ],
+              [
+                {"text": "Interest Rate", "formatting": {"font": {"bold": true, "color": "#2c3e50", "size": 14}}},
+                {"text": "16% per year", "formatting": {"font": {"bold": true, "color": "#E67E22", "size": 14}}},
+                {"text": "Competitive market rate", "formatting": {"font": {"color": "#2c3e50", "size": 14}}}
+              ],
+              [
+                {"text": "Currency Conversion", "formatting": {"font": {"bold": true, "color": "#2c3e50", "size": 14}}},
+                {"text": "2.5%", "formatting": {"font": {"bold": true, "color": "#E67E22", "size": 14}}},
+                {"text": "International transactions", "formatting": {"font": {"color": "#2c3e50", "size": 14}}}
+              ]
+            ]
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 2,
+            "y": 7,
+            "w": 12,
+            "h": 1.5,
+            "fill": {"type": "solid", "color": "#f7f9f9"},
+            "line": {"color": "#e0e0e0", "width": 1}
+          },
+          {
+            "type": "text",
+            "text": "Minimum Repayment: 2025: 8% of billed amount | 2026 onward: 10% (minimum ฿500)",
+            "x": 2.5,
+            "y": 7.3,
+            "w": 11,
+            "h": 0.9,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 16,
+              "bold": true,
+              "color": "#117864"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "colors": ["#0f3460", "#16537e"],
+          "direction": "vertical"
+        },
+        "transition": {
+          "type": "push",
+          "direction": "right",
+          "duration": 0.9
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Security You Can Trust",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=80",
+            "x": 1.5,
+            "y": 2.5,
+            "w": 5,
+            "h": 4
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 7.5,
+            "y": 2.5,
+            "w": 7.5,
+            "h": 4,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#ffffff20", "blur": 15, "distance": 5}
+          },
+          {
+            "type": "text",
+            "text": "🔒 Instant Card Freeze",
+            "x": 8,
+            "y": 3,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#154360"}
+          },
+          {
+            "type": "text",
+            "text": "Via CardX App in case of loss",
+            "x": 8,
+            "y": 3.6,
+            "w": 6.5,
+            "h": 0.5,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          },
+          {
+            "type": "text",
+            "text": "📞 24/7 Customer Support",
+            "x": 8,
+            "y": 4.3,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#154360"}
+          },
+          {
+            "type": "text",
+            "text": "Call 1468 anytime",
+            "x": 8,
+            "y": 4.9,
+            "w": 6.5,
+            "h": 0.5,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          },
+          {
+            "type": "text",
+            "text": "🛡️ Fraud Protection",
+            "x": 8,
+            "y": 5.6,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 18, "bold": true, "color": "#154360"}
+          },
+          {
+            "type": "text",
+            "text": "No liability after reported loss",
+            "x": 8,
+            "y": 6.2,
+            "w": 6.5,
+            "h": 0.5,
+            "transparent": true,
+            "font": {"size": 14, "color": "#2c3e50"}
+          },
+          {
+            "type": "text",
+            "text": "Direct debit & flexible repayment options available",
+            "x": 1,
+            "y": 7.5,
+            "w": 14,
+            "h": 1,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 18,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "gradient",
+          "colors": ["#27ae60", "#2ecc71"],
+          "direction": "radial"
+        },
+        "transition": {
+          "type": "fade",
+          "duration": 1.2
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Choose the Perfect Card for You",
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&q=80",
+            "x": 1.5,
+            "y": 3,
+            "w": 5,
+            "h": 3
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 7.5,
+            "y": 3,
+            "w": 7.5,
+            "h": 3,
+            "fill": {"type": "solid", "color": "#ffffff"},
+            "line": {"color": "#e0e0e0", "width": 1},
+            "shadow": {"visible": true, "color": "#ffffff30", "blur": 20, "distance": 8}
+          },
+          {
+            "type": "text",
+            "text": "✓ Find a card that matches your lifestyle",
+            "x": 8,
+            "y": 3.3,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 16, "color": "#2c3e50"}
+          },
+          {
+            "type": "text",
+            "text": "✓ Apply online at www.cardx.co.th",
+            "x": 8,
+            "y": 3.9,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 16, "color": "#2c3e50"}
+          },
+          {
+            "type": "text",
+            "text": "✓ Special promotions & cashback offers",
+            "x": 8,
+            "y": 4.5,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 16, "color": "#2c3e50"}
+          },
+          {
+            "type": "text",
+            "text": "✓ Join over 1M+ satisfied users",
+            "x": 8,
+            "y": 5.1,
+            "w": 6.5,
+            "h": 0.6,
+            "transparent": true,
+            "font": {"size": 16, "color": "#2c3e50"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Apply Now at www.cardx.co.th",
+            "x": 4,
+            "y": 7,
+            "w": 8,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#E67E22"},
+            "font": {
+              "name": "Segoe UI",
+              "size": 24,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "shadow": {"visible": true, "color": "#E67E2260", "blur": 15, "distance": 5}
+          }
+        ]
+      }
+    ]
+  }
+}
