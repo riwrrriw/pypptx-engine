@@ -65,7 +65,13 @@ class SlideManager:
                 if color:
                     fill.fore_color.rgb = color
             elif bg_type == "gradient":
-                self._apply_gradient_background(slide, background_config)
+                # Use solid color fallback for gradients
+                colors = background_config.get("colors", ["#ffffff"])
+                if colors:
+                    color = self.color_formatter.parse_color(colors[0])
+                    if color:
+                        fill.solid()
+                        fill.fore_color.rgb = color
             elif bg_type == "picture":
                 # Picture background implementation
                 image_path = background_config.get("image_path") or background_config.get("url")
