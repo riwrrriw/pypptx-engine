@@ -1,0 +1,817 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "What is LLM - Large Language Models",
+      "author": "PPTX Engine",
+      "subject": "Introduction to Large Language Models",
+      "keywords": "LLM, AI, machine learning, artificial intelligence"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "What is LLM?",
+            "x": 2,
+            "y": 1.5,
+            "w": 9,
+            "h": 2,
+            "font": {
+              "name": "Arial",
+              "size": 56,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 10
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://f5b623aa.delivery.rocketcdn.me/wp-content/uploads/2023/06/page-4.jpg",
+            "x": 11.5,
+            "y": 1.5,
+            "w": 2.5,
+            "h": 2,
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 8
+            }
+          },
+          {
+            "type": "text",
+            "text": "Large Language Models",
+            "x": 2,
+            "y": 3.5,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Arial",
+              "size": 32,
+              "italic": true,
+              "color": "#e3f2fd"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 5
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Definition",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "font": {
+              "size": 40,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Large Language Models (LLMs) are advanced AI systems trained on vast amounts of text data to understand and generate human-like language.",
+            "x": 2,
+            "y": 2.5,
+            "w": 12,
+            "h": 2,
+            "font": {
+              "name": "Calibri",
+              "size": 24,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center",
+              "line_spacing": 1.4
+            },
+            "fill": {
+              "type": "solid",
+              "color": "#1a237e",
+              "transparency": 0.3
+            },
+            "line": {
+              "color": "#64b5f6",
+              "width": 2
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "bullet",
+            "items": [
+              "Process and understand natural language",
+              "Generate coherent and contextual responses",
+              "Perform various language-related tasks",
+              "Learn patterns from massive text datasets"
+            ],
+            "x": 2,
+            "y": 5,
+            "w": 12,
+            "h": 3,
+            "font": {
+              "name": "Calibri",
+              "size": 20,
+              "color": "#ffffff",
+              "bold": true
+            },
+            "fill": {
+              "type": "solid",
+              "color": "#0d47a1",
+              "transparency": 0.2
+            },
+            "line": {
+              "color": "#42a5f5",
+              "width": 1
+            },
+            "text_frame": {
+              "margin_left": 0.3,
+              "margin_top": 0.2,
+              "vertical_anchor": "top"
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Key Capabilities",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "font": {
+              "size": 40,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Text Generation",
+            "x": 1,
+            "y": 2,
+            "w": 4.5,
+            "h": 2,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1976d2", "position": 0},
+                {"color": "#42a5f5", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#ffffff",
+              "width": 2
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Language Translation",
+            "x": 5.75,
+            "y": 2,
+            "w": 4.5,
+            "h": 2,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1976d2", "position": 0},
+                {"color": "#42a5f5", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#ffffff",
+              "width": 2
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Question Answering",
+            "x": 10.5,
+            "y": 2,
+            "w": 4.5,
+            "h": 2,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1976d2", "position": 0},
+                {"color": "#42a5f5", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#ffffff",
+              "width": 2
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Code Generation",
+            "x": 1,
+            "y": 4.5,
+            "w": 4.5,
+            "h": 2,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1976d2", "position": 0},
+                {"color": "#42a5f5", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#ffffff",
+              "width": 2
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Content Summarization",
+            "x": 5.75,
+            "y": 4.5,
+            "w": 4.5,
+            "h": 2,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1976d2", "position": 0},
+                {"color": "#42a5f5", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#ffffff",
+              "width": 2
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "ROUNDED_RECTANGLE",
+            "text": "Creative Writing",
+            "x": 10.5,
+            "y": 4.5,
+            "w": 4.5,
+            "h": 2,
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1976d2", "position": 0},
+                {"color": "#42a5f5", "position": 1}
+              ]
+            },
+            "line": {
+              "color": "#ffffff",
+              "width": 2
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true,
+              "size": 16
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "text",
+            "text": "LLMs can perform multiple language tasks with remarkable accuracy and human-like understanding",
+            "x": 2,
+            "y": 7,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Calibri",
+              "size": 18,
+              "italic": true,
+              "color": "#e3f2fd"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "fill": {
+              "type": "solid",
+              "color": "#0d47a1",
+              "transparency": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Popular LLM Examples",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "font": {
+              "size": 40,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "flowchart",
+            "x": 0,
+            "y": 0,
+            "w": 16,
+            "h": 9,
+            "elements": [
+              {
+                "id": "gpt",
+                "flowchart_type": "process",
+                "text": "GPT-4\n(OpenAI)",
+                "x": 2,
+                "y": 2.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#00c853"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 14
+                }
+              },
+              {
+                "id": "claude",
+                "flowchart_type": "process",
+                "text": "Claude\n(Anthropic)",
+                "x": 6.5,
+                "y": 2.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#ff6d00"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 14
+                }
+              },
+              {
+                "id": "gemini",
+                "flowchart_type": "process",
+                "text": "Gemini\n(Google)",
+                "x": 11,
+                "y": 2.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#2196f3"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 14
+                }
+              },
+              {
+                "id": "llama",
+                "flowchart_type": "process",
+                "text": "LLaMA\n(Meta)",
+                "x": 2,
+                "y": 5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#9c27b0"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 14
+                }
+              },
+              {
+                "id": "mistral",
+                "flowchart_type": "process",
+                "text": "Mistral\n(Mistral AI)",
+                "x": 6.5,
+                "y": 5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#f44336"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 14
+                }
+              },
+              {
+                "id": "palm",
+                "flowchart_type": "process",
+                "text": "PaLM\n(Google)",
+                "x": 11,
+                "y": 5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#607d8b"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 14
+                }
+              }
+            ],
+            "connections": []
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "How LLMs Work",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "font": {
+              "size": 40,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          },
+          {
+            "type": "flowchart",
+            "x": 0,
+            "y": 0,
+            "w": 16,
+            "h": 9,
+            "elements": [
+              {
+                "id": "training_data",
+                "flowchart_type": "data",
+                "text": "Training Data\n(Billions of texts)",
+                "x": 1,
+                "y": 2.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#4caf50"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 12
+                }
+              },
+              {
+                "id": "neural_network",
+                "flowchart_type": "process",
+                "text": "Neural Network\n(Transformer)",
+                "x": 6,
+                "y": 2.5,
+                "w": 4,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#2196f3"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 12
+                }
+              },
+              {
+                "id": "trained_model",
+                "flowchart_type": "document",
+                "text": "Trained Model\n(LLM)",
+                "x": 12,
+                "y": 2.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#ff9800"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 12
+                }
+              },
+              {
+                "id": "user_input",
+                "flowchart_type": "manual_input",
+                "text": "User Input\n(Prompt)",
+                "x": 1,
+                "y": 5.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#9c27b0"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 12
+                }
+              },
+              {
+                "id": "inference",
+                "flowchart_type": "process",
+                "text": "Inference\n(Processing)",
+                "x": 6,
+                "y": 5.5,
+                "w": 4,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#607d8b"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 12
+                }
+              },
+              {
+                "id": "response",
+                "flowchart_type": "display",
+                "text": "Generated\nResponse",
+                "x": 12,
+                "y": 5.5,
+                "w": 3,
+                "h": 1.5,
+                "fill": {
+                  "type": "solid",
+                  "color": "#e91e63"
+                },
+                "font": {
+                  "color": "#ffffff",
+                  "bold": true,
+                  "size": 12
+                }
+              }
+            ],
+            "connections": [
+              {
+                "from": "training_data",
+                "to": "neural_network",
+                "connector_type": "STRAIGHT",
+                "line": {
+                  "color": "#ffffff",
+                  "width": 3
+                }
+              },
+              {
+                "from": "neural_network",
+                "to": "trained_model",
+                "connector_type": "STRAIGHT",
+                "line": {
+                  "color": "#ffffff",
+                  "width": 3
+                }
+              },
+              {
+                "from": "user_input",
+                "to": "inference",
+                "connector_type": "STRAIGHT",
+                "line": {
+                  "color": "#ffffff",
+                  "width": 3
+                }
+              },
+              {
+                "from": "inference",
+                "to": "response",
+                "connector_type": "STRAIGHT",
+                "line": {
+                  "color": "#ffffff",
+                  "width": 3
+                }
+              },
+              {
+                "from": "trained_model",
+                "to": "inference",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top",
+                "line": {
+                  "color": "#64b5f6",
+                  "width": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "picture",
+          "url": "https://www.shutterstock.com/image-vector/artificial-intelligence-circuit-electric-line-600nw-2465096659.jpg",
+          "fallback_color": "#1a237e"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "The Future of LLMs",
+            "x": 2,
+            "y": 1.5,
+            "w": 12,
+            "h": 2,
+            "font": {
+              "name": "Arial",
+              "size": 48,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000",
+              "blur": 10
+            }
+          },
+          {
+            "type": "bullet",
+            "items": [
+              "🚀 More powerful and efficient models",
+              "🌐 Better multilingual capabilities",
+              "🔧 Specialized domain-specific LLMs",
+              "🤖 Integration with robotics and IoT",
+              "💡 Enhanced reasoning and problem-solving",
+              "🎯 Personalized AI assistants"
+            ],
+            "x": 2,
+            "y": 4,
+            "w": 12,
+            "h": 4,
+            "font": {
+              "name": "Calibri",
+              "size": 22,
+              "color": "#ffffff",
+              "bold": true
+            },
+            "fill": {
+              "type": "gradient",
+              "stops": [
+                {"color": "#1a237e", "position": 0},
+                {"color": "#3f51b5", "position": 1}
+              ],
+              "transparency": 0.2
+            },
+            "line": {
+              "color": "#64b5f6",
+              "width": 2
+            },
+            "text_frame": {
+              "margin_left": 0.4,
+              "margin_top": 0.3,
+              "vertical_anchor": "top"
+            },
+            "shadow": {
+              "visible": true,
+              "color": "#000000"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -196,32 +196,69 @@ class ImageShapeHandler:
     
     def create_image_shape(self, slide, config: Dict[str, Any], x, y, w, h, base_dir: str) -> None:
         """Create an image shape."""
-        image_path = config.get("path")
+        image_path = config.get("path") or config.get("url")
         if not image_path:
-            print("[WARN] No image path specified")
+            print("[WARN] No image path or URL specified")
             return
         
-        # Resolve path
-        if not os.path.isabs(image_path):
-            image_path = os.path.join(base_dir, image_path)
-        
-        if not os.path.exists(image_path):
-            print(f"[WARN] Image not found, skipping: {image_path}")
-            return
-        
-        # Determine dimensions
-        width = Inches(config["w"]) if "w" in config else None
-        height = Inches(config["h"]) if "h" in config else None
-        
-        # Add picture
-        picture = slide.shapes.add_picture(image_path, x, y, width=width, height=height)
-        
-        # Apply formatting
-        if "line" in config:
-            LineFormatter.apply_line_formatting(picture.line, config["line"])
-        
-        if "shadow" in config:
-            ShadowFormatter.apply_shadow(picture, config["shadow"])
+        # Handle URL or local file path
+        temp_image_path = None
+        try:
+            if image_path.startswith(('http://', 'https://')):
+                # Download image from URL
+                import requests
+                import tempfile
+                
+                response = requests.get(image_path, stream=True)
+                response.raise_for_status()
+                
+                # Create temporary file
+                with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as temp_file:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        temp_file.write(chunk)
+                    temp_image_path = temp_file.name
+                    final_image_path = temp_image_path
+            else:
+                # Resolve local path
+                if not os.path.isabs(image_path):
+                    image_path = os.path.join(base_dir, image_path)
+                
+                if not os.path.exists(image_path):
+                    print(f"[WARN] Image not found, skipping: {image_path}")
+                    return
+                
+                final_image_path = image_path
+            
+            # Determine dimensions
+            width = Inches(config["w"]) if "w" in config else None
+            height = Inches(config["h"]) if "h" in config else None
+            
+            # Add picture
+            picture = slide.shapes.add_picture(final_image_path, x, y, width=width, height=height)
+            
+            # Apply formatting
+            if "line" in config:
+                LineFormatter.apply_line_formatting(picture.line, config["line"])
+            
+            if "shadow" in config:
+                ShadowFormatter.apply_shadow(picture, config["shadow"])
+            
+            # Clean up temporary file if it was downloaded
+            if temp_image_path:
+                try:
+                    os.unlink(temp_image_path)
+                except OSError:
+                    pass
+                    
+        except Exception as e:
+            print(f"[WARN] Failed to load image: {e}")
+            # Create placeholder rectangle instead
+            placeholder = slide.shapes.add_shape(
+                MSO_SHAPE.RECTANGLE, x, y, w, h
+            )
+            placeholder.text = "Image not available"
+            placeholder.fill.solid()
+            placeholder.fill.fore_color.rgb = self.color_formatter.parse_color("#cccccc")
 
 
 class ChartShapeHandler:

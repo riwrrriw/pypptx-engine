@@ -3,6 +3,9 @@ Slide management and layout handling
 """
 from __future__ import annotations
 
+import os
+import requests
+import tempfile
 from typing import Any, Dict
 
 from pptx import Presentation
@@ -64,7 +67,9 @@ class SlideManager:
                 # Gradient implementation would go here
             elif bg_type == "picture":
                 # Picture background implementation
-                pass
+                image_path = background_config.get("image_path") or background_config.get("url")
+                if image_path:
+                    self._apply_picture_background(slide, image_path, background_config)
     
     def _fill_placeholders(self, slide, placeholders_config: Dict[str, Any]) -> None:
         """Fill slide placeholders with content."""
@@ -112,3 +117,55 @@ class SlideManager:
             for paragraph in notes_text_frame.paragraphs:
                 for run in paragraph.runs:
                     FontFormatter.apply_font_formatting(run.font, notes_config["font"])
+    
+    def _apply_picture_background(self, slide, image_path: str, config: Dict[str, Any]) -> None:
+        """Apply picture background to slide."""
+        try:
+            # Handle URL or local file path
+            if image_path.startswith(('http://', 'https://')):
+                # Download image from URL
+                response = requests.get(image_path, stream=True)
+                response.raise_for_status()
+                
+                # Create temporary file
+                with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as temp_file:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        temp_file.write(chunk)
+                    temp_image_path = temp_file.name
+            else:
+                # Use local file path
+                temp_image_path = image_path
+            
+            # Add picture as background by creating a full-slide image
+            from pptx.util import Inches
+            
+            # Get actual slide dimensions from presentation
+            presentation = slide.part.package.presentation_part.presentation
+            slide_width = presentation.slide_width
+            slide_height = presentation.slide_height
+            
+            # Add picture to cover entire slide
+            picture = slide.shapes.add_picture(
+                temp_image_path, 0, 0, slide_width, slide_height
+            )
+            
+            # Move picture to back (behind all other elements)
+            slide.shapes._spTree.remove(picture._element)
+            slide.shapes._spTree.insert(2, picture._element)
+            
+            # Clean up temporary file if it was downloaded
+            if image_path.startswith(('http://', 'https://')):
+                try:
+                    os.unlink(temp_image_path)
+                except OSError:
+                    pass
+                    
+        except Exception as e:
+            print(f"[WARN] Failed to apply picture background: {e}")
+            # Fallback to solid color if specified
+            fallback_color = config.get("fallback_color", "#000000")
+            color = self.color_formatter.parse_color(fallback_color)
+            if color:
+                fill = slide.background.fill
+                fill.solid()
+                fill.fore_color.rgb = color
