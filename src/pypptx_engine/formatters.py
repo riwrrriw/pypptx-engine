@@ -97,7 +97,7 @@ class FontFormatter:
     
     @staticmethod
     def apply_font_formatting(font, font_config: Dict[str, Any]) -> None:
-        """Apply font formatting from configuration."""
+        """Apply font formatting from configuration with enhanced options."""
         if not font_config:
             return
         
@@ -122,17 +122,45 @@ class FontFormatter:
                 if hasattr(MSO_TEXT_UNDERLINE_TYPE, underline_type):
                     font.underline = getattr(MSO_TEXT_UNDERLINE_TYPE, underline_type)
         
+        # Enhanced color support
         if "color" in font_config:
-            color = ColorFormatter.parse_color(font_config["color"])
-            if color:
-                font.color.rgb = color
+            color_spec = font_config["color"]
+            if isinstance(color_spec, dict):
+                # Advanced color with theme support
+                if "theme" in color_spec:
+                    theme_color = color_spec["theme"].upper()
+                    if hasattr(MSO_THEME_COLOR, theme_color):
+                        font.color.theme_color = getattr(MSO_THEME_COLOR, theme_color)
+                elif "rgb" in color_spec or "hex" in color_spec:
+                    color = ColorFormatter.parse_color(color_spec)
+                    if color:
+                        font.color.rgb = color
+            else:
+                # Simple color string
+                color = ColorFormatter.parse_color(color_spec)
+                if color:
+                    font.color.rgb = color
+        
+        # Additional font properties
+        if "strikethrough" in font_config:
+            # Note: python-pptx doesn't directly support strikethrough
+            pass
+        
+        if "superscript" in font_config:
+            if font_config["superscript"]:
+                font.superscript = True
+        
+        if "subscript" in font_config:
+            if font_config["subscript"]:
+                font.subscript = True
     
     @staticmethod
     def apply_paragraph_formatting(paragraph, para_config: Dict[str, Any]) -> None:
-        """Apply paragraph-level formatting."""
+        """Apply paragraph-level formatting with enhanced options."""
         if not para_config:
             return
         
+        # Text alignment
         alignment = para_config.get("alignment", "").lower()
         if alignment == "left":
             paragraph.alignment = PP_PARAGRAPH_ALIGNMENT.LEFT
@@ -142,7 +170,10 @@ class FontFormatter:
             paragraph.alignment = PP_PARAGRAPH_ALIGNMENT.RIGHT
         elif alignment == "justify":
             paragraph.alignment = PP_PARAGRAPH_ALIGNMENT.JUSTIFY
+        elif alignment == "distribute":
+            paragraph.alignment = PP_PARAGRAPH_ALIGNMENT.DISTRIBUTE
         
+        # Spacing controls
         if "space_before" in para_config:
             paragraph.space_before = Pt(para_config["space_before"])
         
@@ -150,7 +181,31 @@ class FontFormatter:
             paragraph.space_after = Pt(para_config["space_after"])
         
         if "line_spacing" in para_config:
-            paragraph.line_spacing = para_config["line_spacing"]
+            line_spacing = para_config["line_spacing"]
+            if isinstance(line_spacing, (int, float)):
+                paragraph.line_spacing = line_spacing
+            elif isinstance(line_spacing, dict):
+                # Advanced line spacing with units
+                spacing_value = line_spacing.get("value", 1.0)
+                spacing_unit = line_spacing.get("unit", "multiple")  # "multiple", "points", "lines"
+                if spacing_unit == "multiple":
+                    paragraph.line_spacing = spacing_value
+                elif spacing_unit == "points":
+                    paragraph.line_spacing = Pt(spacing_value)
+        
+        # Indentation
+        if "left_indent" in para_config:
+            paragraph.left_indent = Inches(para_config["left_indent"])
+        
+        if "right_indent" in para_config:
+            paragraph.right_indent = Inches(para_config["right_indent"])
+        
+        if "first_line_indent" in para_config:
+            paragraph.first_line_indent = Inches(para_config["first_line_indent"])
+        
+        # Bullet/numbering level
+        if "level" in para_config:
+            paragraph.level = para_config["level"]
 
 
 class LineFormatter:

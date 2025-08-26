@@ -1,0 +1,514 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "Newton's Three Laws of Motion",
+      "author": "Physics Education",
+      "subject": "Classical Mechanics - Newton's Laws"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "background": {
+          "type": "solid",
+          "color": "#ffffff"
+        },
+        "transition": {
+          "type": "fade",
+          "duration": 0.8
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Newton's First Law",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#000000"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Law of Inertia",
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 0.8,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 24,
+              "italic": true,
+              "color": "#666666"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://cdn-icons-png.flaticon.com/512/1998/1998087.png",
+            "x": 2,
+            "y": 3,
+            "w": 2.5,
+            "h": 2.5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Object at Rest",
+            "x": 6,
+            "y": 3,
+            "w": 2.5,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#f0f0f0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#000000"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 7.25,
+            "begin_y": 4.2,
+            "end_x": 7.25,
+            "end_y": 4.8,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "DIAMOND",
+            "text": "No Force\nApplied?",
+            "x": 6,
+            "y": 5,
+            "w": 2.5,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#e0e0e0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 12, "color": "#000000"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 7.25,
+            "begin_y": 6.2,
+            "end_x": 7.25,
+            "end_y": 6.8,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Stays at Rest",
+            "x": 6,
+            "y": 7,
+            "w": 2.5,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#d0d0d0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#000000"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Object in Motion",
+            "x": 10,
+            "y": 3,
+            "w": 2.5,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#f0f0f0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#000000"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 11.25,
+            "begin_y": 4.2,
+            "end_x": 11.25,
+            "end_y": 4.8,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "DIAMOND",
+            "text": "No Force\nApplied?",
+            "x": 10,
+            "y": 5,
+            "w": 2.5,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#e0e0e0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 12, "color": "#000000"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 11.25,
+            "begin_y": 6.2,
+            "end_x": 11.25,
+            "end_y": 6.8,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Continues Motion",
+            "x": 10,
+            "y": 7,
+            "w": 2.5,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#d0d0d0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#000000"}
+          },
+          {
+            "type": "text",
+            "text": "\"An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an external force.\"",
+            "x": 1,
+            "y": 8.2,
+            "w": 14,
+            "h": 1,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 16,
+              "italic": true,
+              "color": "#333333"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "solid",
+          "color": "#ffffff"
+        },
+        "transition": {
+          "type": "slide",
+          "direction": "left",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Newton's Second Law",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#000000"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "text",
+            "text": "F = ma",
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 0.8,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 32,
+              "bold": true,
+              "color": "#666666"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://cdn-icons-png.flaticon.com/512/1998/1998088.png",
+            "x": 1,
+            "y": 3,
+            "w": 2.5,
+            "h": 2.5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Force (F)",
+            "x": 5,
+            "y": 3,
+            "w": 2,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#ffeeee"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#cc0000"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Mass (m)",
+            "x": 8,
+            "y": 3,
+            "w": 2,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#eeeeff"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#0000cc"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 6,
+            "begin_y": 4.2,
+            "end_x": 7.5,
+            "end_y": 5.2,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "connector",
+            "begin_x": 9,
+            "begin_y": 4.2,
+            "end_x": 8.5,
+            "end_y": 5.2,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "DIAMOND",
+            "text": "F ÷ m",
+            "x": 7,
+            "y": 5.5,
+            "w": 2,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#f0f0f0"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 16, "bold": true, "color": "#000000"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 8,
+            "begin_y": 6.7,
+            "end_x": 8,
+            "end_y": 7.3,
+            "line": {"color": "#000000", "width": 3}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Acceleration (a)",
+            "x": 7,
+            "y": 7.5,
+            "w": 2,
+            "h": 1,
+            "fill": {"type": "solid", "color": "#eeffee"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#00cc00"}
+          },
+          {
+            "type": "text",
+            "text": "Greater Force = Greater Acceleration",
+            "x": 11,
+            "y": 4,
+            "w": 4,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 14, "color": "#333333"}
+          },
+          {
+            "type": "text",
+            "text": "Greater Mass = Less Acceleration",
+            "x": 11,
+            "y": 5,
+            "w": 4,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 14, "color": "#333333"}
+          },
+          {
+            "type": "text",
+            "text": [
+              "Example: Pushing a shopping cart",
+              "• More force = Greater acceleration",
+              "• Heavier cart = Less acceleration for same force"
+            ],
+            "x": 1,
+            "y": 7.2,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 16,
+              "color": "#333333"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "left_indent": 2
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "solid",
+          "color": "#ffffff"
+        },
+        "transition": {
+          "type": "push",
+          "direction": "up",
+          "duration": 1.2
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Newton's Third Law",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 48,
+              "bold": true,
+              "color": "#000000"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "text",
+            "text": "Action & Reaction",
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 0.8,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 24,
+              "italic": true,
+              "color": "#666666"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://cdn-icons-png.flaticon.com/512/1998/1998089.png",
+            "x": 1,
+            "y": 3,
+            "w": 2.5,
+            "h": 2.5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Object A\nApplies Force",
+            "x": 5,
+            "y": 3.5,
+            "w": 2.5,
+            "h": 1.2,
+            "fill": {"type": "solid", "color": "#ffeeee"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#cc0000"}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Object B\nReceives Force",
+            "x": 12,
+            "y": 3.5,
+            "w": 2.5,
+            "h": 1.2,
+            "fill": {"type": "solid", "color": "#eeeeff"},
+            "line": {"color": "#000000", "width": 2},
+            "font": {"size": 14, "bold": true, "color": "#0000cc"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 7.7,
+            "begin_y": 4,
+            "end_x": 11.8,
+            "end_y": 4,
+            "line": {"color": "#cc0000", "width": 4}
+          },
+          {
+            "type": "text",
+            "text": "ACTION →",
+            "x": 8.5,
+            "y": 3.5,
+            "w": 2.5,
+            "h": 0.5,
+            "transparent": true,
+            "font": {"size": 12, "bold": true, "color": "#cc0000"}
+          },
+          {
+            "type": "connector",
+            "begin_x": 11.8,
+            "begin_y": 4.5,
+            "end_x": 7.7,
+            "end_y": 4.5,
+            "line": {"color": "#0000cc", "width": 4}
+          },
+          {
+            "type": "text",
+            "text": "← REACTION",
+            "x": 8.5,
+            "y": 4.7,
+            "w": 2.5,
+            "h": 0.5,
+            "transparent": true,
+            "font": {"size": 12, "bold": true, "color": "#0000cc"}
+          },
+          {
+            "type": "text",
+            "text": "Equal & Opposite Forces",
+            "x": 8,
+            "y": 6,
+            "w": 3,
+            "h": 0.8,
+            "transparent": true,
+            "font": {"size": 14, "bold": true, "color": "#000000"}
+          },
+          {
+            "type": "text",
+            "text": [
+              "Examples:",
+              "• Walking: You push ground backward → Ground pushes you forward",
+              "• Rocket: Exhaust pushes down → Rocket pushes up",
+              "• Swimming: You push water backward → Water pushes you forward"
+            ],
+            "x": 1,
+            "y": 7.2,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Segoe UI",
+              "size": 16,
+              "color": "#333333"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "left_indent": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -67,7 +67,7 @@ class TextShapeHandler:
         self.color_formatter = color_formatter
     
     def create_text_shape(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
-        """Create a text box shape."""
+        """Create a text box shape with enhanced paragraph and formatting support."""
         textbox = slide.shapes.add_textbox(x, y, w, h)
         text_frame = textbox.text_frame
         
@@ -77,33 +77,92 @@ class TextShapeHandler:
         # Set text frame properties
         self._apply_text_frame_formatting(text_frame, config.get("text_frame", {}))
         
-        # Add text content
+        # Add text content with enhanced support
         text_content = config.get("text", "")
+        
         if isinstance(text_content, str):
-            # Simple text
-            p = text_frame.paragraphs[0]
-            run = p.add_run()
-            run.text = text_content
-            
-            # Apply formatting
-            FontFormatter.apply_font_formatting(run.font, config.get("font", {}))
-            FontFormatter.apply_paragraph_formatting(p, config.get("paragraph", {}))
-            
-            # Apply hyperlinks and click actions
-            self._apply_text_actions(run, config.get("actions", {}))
+            # Simple text - single paragraph
+            self._create_simple_text_paragraph(text_frame, text_content, config)
         elif isinstance(text_content, list):
-            # Multiple paragraphs
-            for i, para_text in enumerate(text_content):
-                p = text_frame.add_paragraph() if i > 0 else text_frame.paragraphs[0]
-                run = p.add_run()
-                run.text = str(para_text)
-                
-                # Apply formatting
-                FontFormatter.apply_font_formatting(run.font, config.get("font", {}))
-                FontFormatter.apply_paragraph_formatting(p, config.get("paragraph", {}))
+            # Multiple paragraphs or rich text variants
+            self._create_multi_paragraph_text(text_frame, text_content, config)
+        elif isinstance(text_content, dict):
+            # Rich text with advanced formatting
+            self._create_rich_text_content(text_frame, text_content, config)
         
         # Apply shape-level formatting
         self._apply_shape_formatting(textbox, config)
+    
+    def _create_simple_text_paragraph(self, text_frame, text_content: str, config: Dict[str, Any]) -> None:
+        """Create a simple single paragraph with formatting."""
+        p = text_frame.paragraphs[0]
+        run = p.add_run()
+        run.text = text_content
+        
+        # Apply formatting
+        FontFormatter.apply_font_formatting(run.font, config.get("font", {}))
+        FontFormatter.apply_paragraph_formatting(p, config.get("paragraph", {}))
+        
+        # Apply hyperlinks and click actions
+        self._apply_text_actions(run, config.get("actions", {}))
+    
+    def _create_multi_paragraph_text(self, text_frame, text_content: List, config: Dict[str, Any]) -> None:
+        """Create multiple paragraphs with individual or shared formatting."""
+        for i, para_item in enumerate(text_content):
+            p = text_frame.add_paragraph() if i > 0 else text_frame.paragraphs[0]
+            
+            if isinstance(para_item, str):
+                # Simple paragraph text
+                run = p.add_run()
+                run.text = para_item
+                
+                # Apply shared formatting
+                FontFormatter.apply_font_formatting(run.font, config.get("font", {}))
+                FontFormatter.apply_paragraph_formatting(p, config.get("paragraph", {}))
+                
+            elif isinstance(para_item, dict):
+                # Paragraph with individual formatting
+                para_text = para_item.get("text", "")
+                run = p.add_run()
+                run.text = para_text
+                
+                # Apply paragraph-specific formatting first, then fallback to shared
+                para_font_config = para_item.get("font", config.get("font", {}))
+                para_paragraph_config = para_item.get("paragraph", config.get("paragraph", {}))
+                
+                FontFormatter.apply_font_formatting(run.font, para_font_config)
+                FontFormatter.apply_paragraph_formatting(p, para_paragraph_config)
+                
+                # Apply paragraph-specific actions
+                self._apply_text_actions(run, para_item.get("actions", {}))
+    
+    def _create_rich_text_content(self, text_frame, text_content: Dict[str, Any], config: Dict[str, Any]) -> None:
+        """Create rich text with advanced formatting options."""
+        paragraphs_data = text_content.get("paragraphs", [])
+        
+        for i, para_data in enumerate(paragraphs_data):
+            p = text_frame.add_paragraph() if i > 0 else text_frame.paragraphs[0]
+            
+            # Handle runs within paragraph
+            runs_data = para_data.get("runs", [])
+            if not runs_data and "text" in para_data:
+                # Simple paragraph with just text
+                runs_data = [{"text": para_data["text"]}]
+            
+            for run_data in runs_data:
+                run = p.add_run()
+                run.text = run_data.get("text", "")
+                
+                # Apply run-specific formatting
+                run_font_config = run_data.get("font", para_data.get("font", config.get("font", {})))
+                FontFormatter.apply_font_formatting(run.font, run_font_config)
+                
+                # Apply run-specific actions
+                self._apply_text_actions(run, run_data.get("actions", {}))
+            
+            # Apply paragraph-level formatting
+            para_paragraph_config = para_data.get("paragraph", config.get("paragraph", {}))
+            FontFormatter.apply_paragraph_formatting(p, para_paragraph_config)
     
     def _apply_text_actions(self, run, actions_config: Dict[str, Any]) -> None:
         """Apply hyperlinks and click actions to text runs."""
@@ -177,16 +236,33 @@ class TextShapeHandler:
             text_frame.vertical_anchor = MSO_VERTICAL_ANCHOR.BOTTOM
     
     def _apply_shape_formatting(self, shape, config: Dict[str, Any]) -> None:
-        """Apply general shape formatting."""
-        # Fill formatting
-        if "fill" in config:
+        """Apply general shape formatting with transparent text support."""
+        # Handle transparent text (no background)
+        transparent_text = config.get("transparent", False)
+        no_fill = config.get("no_fill", False)
+        no_border = config.get("no_border", False)
+        
+        if transparent_text or no_fill:
+            # Remove background fill completely
+            shape.fill.background()
+        elif "fill" in config:
+            # Apply custom fill
             ColorFormatter.apply_fill(shape, config["fill"])
+        else:
+            # Default: remove fill for clean text appearance
+            shape.fill.background()
         
-        # Line formatting
-        if "line" in config:
+        if transparent_text or no_border:
+            # Remove border completely
+            shape.line.fill.background()
+        elif "line" in config:
+            # Apply custom line formatting
             LineFormatter.apply_line_formatting(shape.line, config["line"])
+        else:
+            # Default: remove border for clean text appearance
+            shape.line.fill.background()
         
-        # Shadow formatting
+        # Shadow formatting (still applies even for transparent text)
         if "shadow" in config:
             ShadowFormatter.apply_shadow(shape, config["shadow"])
 
