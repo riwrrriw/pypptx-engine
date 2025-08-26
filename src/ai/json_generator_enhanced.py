@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime
 
-
 class EnhancedJSONGenerator:
     """Generate professional pypptx-engine JSON from content plans"""
     
@@ -39,7 +38,7 @@ class EnhancedJSONGenerator:
         # Parse content plan
         parsed_plan = self._parse_content_plan(content_plan)
         
-        # Generate JSON structure with professional format
+        # Generate JSON structure with correct pypptx-engine format
         json_spec = {
             "presentation": {
                 "properties": {
@@ -48,15 +47,15 @@ class EnhancedJSONGenerator:
                     "subject": parsed_plan.get("goal", "Professional Presentation"),
                     "keywords": "ai-generated, professional, presentation"
                 },
-                "size": {"width_in": 16, "height_in": 9}
-            },
-            "slides": []
+                "size": {"width_in": 16, "height_in": 9},
+                "slides": []
+            }
         }
         
         # Generate slides with enhanced templates
         for slide_info in parsed_plan.get("slides", []):
             slide_json = self._generate_enhanced_slide(slide_info, parsed_plan)
-            json_spec["slides"].append(slide_json)
+            json_spec["presentation"]["slides"].append(slide_json)
         
         return json_spec
     
