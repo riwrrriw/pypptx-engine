@@ -62,7 +62,7 @@ class PPTXEngine:
                     shape_index = slide_config.get("shapes", []).index(shape_config)
                     if shape_index < len(slide.shapes):
                         shape = slide.shapes[shape_index]
-                        self.animation_manager.apply_shape_animation(shape, shape_config["animation"])
+                        self.animation_manager.apply_shape_animation(slide, shape, shape_config["animation"])
         
         return prs
     

@@ -1,0 +1,165 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "Flexible Animation System Demo",
+      "author": "pypptx-engine"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "background": "#f8f9fa",
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Flexible Animation System",
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Arial",
+              "size": 36,
+              "bold": true,
+              "color": "#2c3e50"
+            },
+            "animation": {
+              "type": "fade_in",
+              "duration": "fast",
+              "trigger": "on_click",
+              "delay": 0
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Basic Motion",
+            "x": 1,
+            "y": 3,
+            "w": 3,
+            "h": 1.5,
+            "fill": { "color": "#3498db" },
+            "font": { "color": "#ffffff", "bold": true },
+            "animation": {
+              "type": "move_right",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.5
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "CIRCLE",
+            "text": "Custom Motion",
+            "x": 6,
+            "y": 3,
+            "w": 3,
+            "h": 1.5,
+            "fill": { "color": "#e74c3c" },
+            "font": { "color": "#ffffff", "bold": true },
+            "animation": {
+              "type": "move_left",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.3,
+              "custom": {
+                "from": "#ppt_x",
+                "to": "#ppt_x-0.5",
+                "attr": "ppt_x",
+                "easing": "spline"
+              }
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "TRIANGLE",
+            "text": "Custom Animation",
+            "x": 11,
+            "y": 3,
+            "w": 3,
+            "h": 1.5,
+            "fill": { "color": "#27ae60" },
+            "font": { "color": "#ffffff", "bold": true },
+            "animation": {
+              "type": "custom_effect",
+              "duration": 2.0,
+              "trigger": "after_previous",
+              "delay": 0.2,
+              "custom": {
+                "from": "#ppt_y",
+                "to": "#ppt_y-0.3",
+                "attr": "ppt_y",
+                "easing": "bounce"
+              }
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "STAR_5_POINT",
+            "text": "Entrance Effect",
+            "x": 2,
+            "y": 6,
+            "w": 3,
+            "h": 1.5,
+            "fill": { "color": "#f39c12" },
+            "font": { "color": "#ffffff", "bold": true },
+            "animation": {
+              "type": "fly_in_left",
+              "duration": "fast",
+              "trigger": "after_previous",
+              "delay": 0.1,
+              "custom": {
+                "preset_id": "2",
+                "preset_subtype": "8",
+                "transition": "in",
+                "filter": "slide"
+              }
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "DIAMOND",
+            "text": "Emphasis Effect",
+            "x": 6.5,
+            "y": 6,
+            "w": 3,
+            "h": 1.5,
+            "fill": { "color": "#9b59b6" },
+            "font": { "color": "#ffffff", "bold": true },
+            "animation": {
+              "type": "pulse",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.2,
+              "repeat": 2,
+              "custom": {
+                "filter": "pulse",
+                "transition": "emphasis"
+              }
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "HEXAGON",
+            "text": "Full Custom XML",
+            "x": 11,
+            "y": 6,
+            "w": 3,
+            "h": 1.5,
+            "fill": { "color": "#34495e" },
+            "font": { "color": "#ffffff", "bold": true },
+            "animation": {
+              "type": "custom_xml",
+              "duration": 1.5,
+              "trigger": "after_previous",
+              "delay": 0.1,
+              "custom": {
+                "xml_template": "<p:timing xmlns:p=\"http://schemas.openxmlformats.org/presentationml/2006/main\"><p:tnLst><p:par><p:cTn id=\"1\" dur=\"indefinite\" restart=\"never\" nodeType=\"tmRoot\"><p:childTnLst><p:seq concurrent=\"1\" nextAc=\"seek\"><p:cTn id=\"2\" dur=\"indefinite\" nodeType=\"mainSeq\"><p:childTnLst><p:par><p:cTn id=\"5\" fill=\"hold\" grpId=\"0\" nodeType=\"clickEffect\"><p:stCondLst><p:cond evt=\"{trigger}\" delay=\"{delay}\"/></p:stCondLst><p:childTnLst><p:anim from=\"#ppt_x\" to=\"#ppt_x+0.2\" calcmode=\"spline\" valueType=\"num\"><p:cBhvr><p:cTn id=\"6\" dur=\"{duration}\" fill=\"hold\"/><p:tgtEl><p:spTgt spid=\"{shape_id}\"/></p:tgtEl><p:attrNameLst><p:attrName>ppt_x</p:attrName></p:attrNameLst></p:cBhvr></p:anim></p:childTnLst></p:cTn></p:par></p:childTnLst></p:cTn></p:seq></p:childTnLst></p:cTn></p:par></p:tnLst><p:bldLst><p:bldP spid=\"{shape_id}\" grpId=\"0\" animBg=\"1\"/></p:bldLst></p:timing>"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

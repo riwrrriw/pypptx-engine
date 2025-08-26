@@ -1,0 +1,421 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "Motion Path Animation Examples",
+      "author": "PPTX Engine",
+      "template": "modern",
+      "theme": "blue"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "transition": {
+          "type": "fade",
+          "duration": "medium"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Motion Path Animations",
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Arial",
+              "size": 44,
+              "bold": true,
+              "color": "#0078d4"
+            },
+            "animation": {
+              "type": "fade_in",
+              "duration": "medium",
+              "trigger": "on_click",
+              "delay": 0
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Move Left",
+            "x": 8,
+            "y": 3,
+            "w": 2,
+            "h": 1,
+            "fill": {
+              "type": "solid",
+              "color": "#ff6b6b"
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true
+            },
+            "animation": {
+              "type": "move_left",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.5
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "text": "Move Right",
+            "x": 6,
+            "y": 4.5,
+            "w": 2,
+            "h": 1,
+            "fill": {
+              "type": "solid",
+              "color": "#4ecdc4"
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true
+            },
+            "animation": {
+              "type": "move_right",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "OVAL",
+            "text": "Move Up",
+            "x": 10,
+            "y": 6,
+            "w": 2,
+            "h": 1,
+            "fill": {
+              "type": "solid",
+              "color": "#45b7d1"
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true
+            },
+            "animation": {
+              "type": "move_up",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "OVAL",
+            "text": "Move Down",
+            "x": 4,
+            "y": 2,
+            "w": 2,
+            "h": 1,
+            "fill": {
+              "type": "solid",
+              "color": "#f7b731"
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true
+            },
+            "animation": {
+              "type": "move_down",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "DIAMOND",
+            "text": "Diagonal",
+            "x": 2,
+            "y": 6,
+            "w": 2,
+            "h": 1,
+            "fill": {
+              "type": "solid",
+              "color": "#a55eea"
+            },
+            "font": {
+              "color": "#ffffff",
+              "bold": true
+            },
+            "animation": {
+              "type": "move_diagonal",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "transition": {
+          "type": "push",
+          "duration": "medium"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Sequential Animation Demo",
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Arial",
+              "size": 44,
+              "bold": true,
+              "color": "#0078d4"
+            },
+            "animation": {
+              "type": "zoom",
+              "duration": "fast",
+              "trigger": "on_click",
+              "delay": 0
+            }
+          },
+          {
+            "type": "text",
+            "text": "Step 1: Analysis",
+            "x": 1,
+            "y": 3,
+            "w": 4,
+            "h": 1,
+            "font": {
+              "size": 24,
+              "color": "#2c3e50"
+            },
+            "animation": {
+              "type": "fly_in",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.5
+            }
+          },
+          {
+            "type": "text",
+            "text": "Step 2: Planning",
+            "x": 6,
+            "y": 3,
+            "w": 4,
+            "h": 1,
+            "font": {
+              "size": 24,
+              "color": "#2c3e50"
+            },
+            "animation": {
+              "type": "fly_in",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "text",
+            "text": "Step 3: Implementation",
+            "x": 11,
+            "y": 3,
+            "w": 4,
+            "h": 1,
+            "font": {
+              "size": 24,
+              "color": "#2c3e50"
+            },
+            "animation": {
+              "type": "fly_in",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RIGHT_ARROW",
+            "x": 4.5,
+            "y": 3.2,
+            "w": 1,
+            "h": 0.6,
+            "fill": {
+              "type": "solid",
+              "color": "#27ae60"
+            },
+            "animation": {
+              "type": "appear",
+              "duration": "fast",
+              "trigger": "after_previous",
+              "delay": 0.2
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RIGHT_ARROW",
+            "x": 9.5,
+            "y": 3.2,
+            "w": 1,
+            "h": 0.6,
+            "fill": {
+              "type": "solid",
+              "color": "#27ae60"
+            },
+            "animation": {
+              "type": "appear",
+              "duration": "fast",
+              "trigger": "after_previous",
+              "delay": 0.2
+            }
+          },
+          {
+            "type": "text",
+            "text": "Final Result: Success!",
+            "x": 4,
+            "y": 5.5,
+            "w": 8,
+            "h": 1.5,
+            "font": {
+              "size": 32,
+              "bold": true,
+              "color": "#e74c3c"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "animation": {
+              "type": "bounce",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.8
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "transition": {
+          "type": "zoom",
+          "duration": "medium"
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "Complex Animation Sequence",
+            "x": 2,
+            "y": 0.5,
+            "w": 12,
+            "h": 1.5,
+            "font": {
+              "name": "Arial",
+              "size": 40,
+              "bold": true,
+              "color": "#0078d4"
+            },
+            "animation": {
+              "type": "swivel",
+              "duration": "medium",
+              "trigger": "on_click",
+              "delay": 0
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "STAR_5_POINT",
+            "x": 2,
+            "y": 2.5,
+            "w": 1.5,
+            "h": 1.5,
+            "fill": {
+              "type": "solid",
+              "color": "#f39c12"
+            },
+            "animation": {
+              "type": "spin",
+              "duration": "medium",
+              "trigger": "after_previous",
+              "delay": 0.2
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "STAR_5_POINT",
+            "x": 4.5,
+            "y": 2.5,
+            "w": 1.5,
+            "h": 1.5,
+            "fill": {
+              "type": "solid",
+              "color": "#e67e22"
+            },
+            "animation": {
+              "type": "spin",
+              "duration": "medium",
+              "trigger": "with_previous",
+              "delay": 0.3
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "STAR_5_POINT",
+            "x": 7,
+            "y": 2.5,
+            "w": 1.5,
+            "h": 1.5,
+            "fill": {
+              "type": "solid",
+              "color": "#d35400"
+            },
+            "animation": {
+              "type": "spin",
+              "duration": "medium",
+              "trigger": "with_previous",
+              "delay": 0.4
+            }
+          },
+          {
+            "type": "text",
+            "text": "Objects can move and animate in sequence!",
+            "x": 2,
+            "y": 5,
+            "w": 12,
+            "h": 2,
+            "font": {
+              "size": 28,
+              "italic": true,
+              "color": "#34495e"
+            },
+            "paragraph": {
+              "alignment": "center"
+            },
+            "animation": {
+              "type": "float_in",
+              "duration": "slow",
+              "trigger": "after_previous",
+              "delay": 0.8
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "SMILEY_FACE",
+            "x": 12.5,
+            "y": 2.5,
+            "w": 2,
+            "h": 2,
+            "fill": {
+              "type": "solid",
+              "color": "#f1c40f"
+            },
+            "animation": {
+              "type": "move_left",
+              "duration": "very_slow",
+              "trigger": "after_previous",
+              "delay": 0.5
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -212,3 +212,6 @@ For questions, issues, or contributions:
 - Create an issue on GitHub
 - Check the documentation in `.context/`
 - Review example configurations in `src/examples/`
+
+
+https://learn.microsoft.com/en-us/office/open-xml/presentation/overview
