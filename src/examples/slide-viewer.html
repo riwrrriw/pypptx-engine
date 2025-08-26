@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pypptx-engine Slide Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <style>
+        .slide-container {
+            aspect-ratio: 16/9;
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-bg {
+            background: linear-gradient(var(--gradient-direction, to bottom), var(--gradient-colors));
+        }
+        .slide-shadow {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="container mx-auto p-6">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                pypptx-engine Slide Viewer
+            </h1>
+            <p class="text-gray-300">Upload a JSON presentation file to preview slides</p>
+        </div>
+
+        <!-- File Upload -->
+        <div class="mb-8">
+            <div class="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-blue-500 transition-colors">
+                <input type="file" id="jsonFile" accept=".json" class="hidden">
+                <label for="jsonFile" class="cursor-pointer">
+                    <div class="text-6xl mb-4">📁</div>
+                    <div class="text-xl mb-2">Drop JSON file here or click to browse</div>
+                    <div class="text-gray-400">Supports pypptx-engine JSON format</div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Presentation Info -->
+        <div id="presentationInfo" class="hidden mb-8 bg-gray-800 rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4">Presentation Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <span class="text-gray-400">Title:</span>
+                    <div id="presentationTitle" class="font-semibold"></div>
+                </div>
+                <div>
+                    <span class="text-gray-400">Author:</span>
+                    <div id="presentationAuthor" class="font-semibold"></div>
+                </div>
+                <div>
+                    <span class="text-gray-400">Slides:</span>
+                    <div id="slideCount" class="font-semibold"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div id="navigation" class="hidden mb-6 flex justify-between items-center">
+            <button id="prevSlide" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                ← Previous
+            </button>
+            <div class="flex space-x-2">
+                <span class="text-gray-400">Slide</span>
+                <span id="currentSlide" class="font-bold">1</span>
+                <span class="text-gray-400">of</span>
+                <span id="totalSlides" class="font-bold">1</span>
+            </div>
+            <button id="nextSlide" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                Next →
+            </button>
+        </div>
+
+        <!-- Slide Display -->
+        <div id="slideDisplay" class="hidden">
+            <div class="slide-container bg-white rounded-lg slide-shadow mx-auto max-w-4xl">
+                <canvas id="slideCanvas" class="w-full h-full rounded-lg"></canvas>
+            </div>
+        </div>
+
+        <!-- Slide Thumbnails -->
+        <div id="thumbnails" class="hidden mt-8">
+            <h3 class="text-xl font-bold mb-4">Slide Thumbnails</h3>
+            <div id="thumbnailGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+        </div>
+    </div>
+
+    <script>
+        let presentationData = null;
+        let currentSlideIndex = 0;
+        let canvas = null;
+
+        // Initialize Fabric.js canvas
+        function initCanvas() {
+            canvas = new fabric.Canvas('slideCanvas', {
+                width: 800,
+                height: 450,
+                backgroundColor: '#ffffff'
+            });
+        }
+
+        // File upload handler
+        document.getElementById('jsonFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type === 'application/json') {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        presentationData = JSON.parse(e.target.result);
+                        loadPresentation();
+                    } catch (error) {
+                        alert('Error parsing JSON file: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        // Load presentation data
+        function loadPresentation() {
+            if (!presentationData || !presentationData.presentation) {
+                alert('Invalid presentation format');
+                return;
+            }
+
+            const presentation = presentationData.presentation;
+            
+            // Show presentation info
+            document.getElementById('presentationTitle').textContent = presentation.properties?.title || 'Untitled';
+            document.getElementById('presentationAuthor').textContent = presentation.properties?.author || 'Unknown';
+            document.getElementById('slideCount').textContent = presentation.slides?.length || 0;
+            document.getElementById('presentationInfo').classList.remove('hidden');
+
+            // Initialize canvas
+            if (!canvas) {
+                initCanvas();
+            }
+
+            // Show navigation and slide display
+            document.getElementById('navigation').classList.remove('hidden');
+            document.getElementById('slideDisplay').classList.remove('hidden');
+            document.getElementById('thumbnails').classList.remove('hidden');
+
+            // Update navigation
+            document.getElementById('totalSlides').textContent = presentation.slides.length;
+            
+            // Load first slide
+            currentSlideIndex = 0;
+            loadSlide(currentSlideIndex);
+            generateThumbnails();
+        }
+
+        // Load specific slide
+        function loadSlide(index) {
+            if (!presentationData || !presentationData.presentation.slides[index]) return;
+
+            const slide = presentationData.presentation.slides[index];
+            canvas.clear();
+
+            // Set background
+            if (slide.background) {
+                setSlideBackground(slide.background);
+            }
+
+            // Add shapes
+            if (slide.shapes) {
+                slide.shapes.forEach(shape => {
+                    addShapeToCanvas(shape);
+                });
+            }
+
+            // Update navigation
+            document.getElementById('currentSlide').textContent = index + 1;
+            canvas.renderAll();
+        }
+
+        // Set slide background
+        function setSlideBackground(background) {
+            if (background.type === 'gradient') {
+                const colors = background.colors || ['#ffffff', '#f0f0f0'];
+                const direction = background.direction === 'horizontal' ? '90deg' : '180deg';
+                canvas.setBackgroundColor({
+                    type: 'linear',
+                    coords: {
+                        x1: 0, y1: 0,
+                        x2: background.direction === 'horizontal' ? canvas.width : 0,
+                        y2: background.direction === 'horizontal' ? 0 : canvas.height
+                    },
+                    colorStops: colors.map((color, i) => ({
+                        offset: i / (colors.length - 1),
+                        color: color
+                    }))
+                }, canvas.renderAll.bind(canvas));
+            } else if (background.color) {
+                canvas.setBackgroundColor(background.color, canvas.renderAll.bind(canvas));
+            }
+        }
+
+        // Add shape to canvas
+        function addShapeToCanvas(shape) {
+            const scale = canvas.width / 16; // Assuming 16 inch width
+
+            switch (shape.type) {
+                case 'text':
+                    addTextShape(shape, scale);
+                    break;
+                case 'image':
+                    addImageShape(shape, scale);
+                    break;
+                case 'rectangle':
+                    addRectangleShape(shape, scale);
+                    break;
+                case 'autoshape':
+                    addAutoShape(shape, scale);
+                    break;
+            }
+        }
+
+        // Add text shape
+        function addTextShape(shape, scale) {
+            const text = new fabric.Text(shape.text || '', {
+                left: (shape.x || 0) * scale,
+                top: (shape.y || 0) * scale,
+                width: (shape.w || 1) * scale,
+                fontSize: (shape.font?.size || 12) * (scale / 50),
+                fill: shape.font?.color || '#000000',
+                fontFamily: shape.font?.name || 'Arial',
+                textAlign: shape.paragraph?.alignment || 'left',
+                selectable: false
+            });
+
+            // Add shadow if specified
+            if (shape.shadow?.visible) {
+                text.shadow = new fabric.Shadow({
+                    color: shape.shadow.color || '#000000',
+                    blur: shape.shadow.blur || 5,
+                    offsetX: shape.shadow.distance || 3,
+                    offsetY: shape.shadow.distance || 3
+                });
+            }
+
+            canvas.add(text);
+        }
+
+        // Add image shape
+        function addImageShape(shape, scale) {
+            if (shape.url) {
+                fabric.Image.fromURL(shape.url, function(img) {
+                    img.set({
+                        left: (shape.x || 0) * scale,
+                        top: (shape.y || 0) * scale,
+                        scaleX: ((shape.w || 1) * scale) / img.width,
+                        scaleY: ((shape.h || 1) * scale) / img.height,
+                        selectable: false
+                    });
+
+                    // Add shadow if specified
+                    if (shape.shadow?.visible) {
+                        img.shadow = new fabric.Shadow({
+                            color: shape.shadow.color || '#000000',
+                            blur: shape.shadow.blur || 5,
+                            offsetX: shape.shadow.distance || 3,
+                            offsetY: shape.shadow.distance || 3
+                        });
+                    }
+
+                    canvas.add(img);
+                    canvas.renderAll();
+                }, { crossOrigin: 'anonymous' });
+            }
+        }
+
+        // Add rectangle shape
+        function addRectangleShape(shape, scale) {
+            const rect = new fabric.Rect({
+                left: (shape.x || 0) * scale,
+                top: (shape.y || 0) * scale,
+                width: (shape.w || 1) * scale,
+                height: (shape.h || 1) * scale,
+                fill: shape.fill?.color || '#cccccc',
+                stroke: shape.line?.color || null,
+                strokeWidth: shape.line?.width || 0,
+                selectable: false
+            });
+
+            // Add shadow if specified
+            if (shape.shadow?.visible) {
+                rect.shadow = new fabric.Shadow({
+                    color: shape.shadow.color || '#000000',
+                    blur: shape.shadow.blur || 5,
+                    offsetX: shape.shadow.distance || 3,
+                    offsetY: shape.shadow.distance || 3
+                });
+            }
+
+            canvas.add(rect);
+        }
+
+        // Add autoshape (simplified)
+        function addAutoShape(shape, scale) {
+            // For now, render autoshapes as rectangles with text
+            if (shape.shape_type === 'rectangle' || !shape.shape_type) {
+                addRectangleShape(shape, scale);
+            }
+        }
+
+        // Generate thumbnails
+        function generateThumbnails() {
+            const thumbnailGrid = document.getElementById('thumbnailGrid');
+            thumbnailGrid.innerHTML = '';
+
+            presentationData.presentation.slides.forEach((slide, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'bg-gray-800 rounded-lg p-2 cursor-pointer hover:bg-gray-700 transition-colors';
+                thumbnail.innerHTML = `
+                    <div class="aspect-video bg-white rounded mb-2 flex items-center justify-center text-gray-800 text-xs">
+                        Slide ${index + 1}
+                    </div>
+                    <div class="text-center text-xs text-gray-400">Slide ${index + 1}</div>
+                `;
+                thumbnail.addEventListener('click', () => {
+                    currentSlideIndex = index;
+                    loadSlide(index);
+                });
+                thumbnailGrid.appendChild(thumbnail);
+            });
+        }
+
+        // Navigation handlers
+        document.getElementById('prevSlide').addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                loadSlide(currentSlideIndex);
+            }
+        });
+
+        document.getElementById('nextSlide').addEventListener('click', () => {
+            if (currentSlideIndex < presentationData.presentation.slides.length - 1) {
+                currentSlideIndex++;
+                loadSlide(currentSlideIndex);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!presentationData) return;
+            
+            if (e.key === 'ArrowLeft' && currentSlideIndex > 0) {
+                currentSlideIndex--;
+                loadSlide(currentSlideIndex);
+            } else if (e.key === 'ArrowRight' && currentSlideIndex < presentationData.presentation.slides.length - 1) {
+                currentSlideIndex++;
+                loadSlide(currentSlideIndex);
+            }
+        });
+
+        // Drag and drop support
+        document.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        document.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'application/json') {
+                document.getElementById('jsonFile').files = files;
+                document.getElementById('jsonFile').dispatchEvent(new Event('change'));
+            }
+        });
+    </script>
+</body>
+</html>
