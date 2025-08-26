@@ -5,6 +5,7 @@ from .engine import PPTXEngine
 from .slides import SlideManager
 from .shapes import ShapeFactory
 from .formatters import ColorFormatter, FontFormatter, LineFormatter, ShadowFormatter
+from .flowchart import FlowchartHandler, FlowchartLayoutManager
 
 __version__ = "0.1.0"
 __all__ = [
@@ -14,5 +15,7 @@ __all__ = [
     "ColorFormatter",
     "FontFormatter", 
     "LineFormatter",
-    "ShadowFormatter"
+    "ShadowFormatter",
+    "FlowchartHandler",
+    "FlowchartLayoutManager"
 ]

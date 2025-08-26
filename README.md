@@ -22,10 +22,10 @@ pip install -e .
 
 ```bash
 # Generate a presentation from JSON
-pypptx-engine --input examples/comprehensive_example.json --output demo.pptx
+pypptx-engine --input src/examples/comprehensive_example.json --output src/output/demo.pptx
 
 # With custom asset directory
-pypptx-engine -i config.json -o presentation.pptx --assets-base ./assets/
+pypptx-engine -i src/examples/comprehensive_example.json -o demo.pptx --assets-base ./assets/
 ```
 
 ### Python API

@@ -13,6 +13,7 @@ from pptx.chart.data import CategoryChartData, XyChartData, BubbleChartData
 from pptx.enum.chart import XL_CHART_TYPE, XL_LEGEND_POSITION, XL_DATA_LABEL_POSITION
 
 from .formatters import FontFormatter, ColorFormatter, LineFormatter, ShadowFormatter
+from .flowchart import FlowchartHandler
 
 
 class ShapeFactory:
@@ -25,6 +26,7 @@ class ShapeFactory:
         self.chart_handler = ChartShapeHandler()
         self.table_handler = TableShapeHandler(color_formatter)
         self.autoshape_handler = AutoShapeHandler(color_formatter)
+        self.flowchart_handler = FlowchartHandler(color_formatter)
     
     def create_shape(self, slide, shape_config: Dict[str, Any], base_dir: str) -> None:
         """Create a shape based on configuration."""
@@ -54,6 +56,8 @@ class ShapeFactory:
             self.autoshape_handler.create_group_shape(slide, shape_config, x, y, w, h)
         elif shape_type == "freeform":
             self.autoshape_handler.create_freeform_shape(slide, shape_config, x, y, w, h)
+        elif shape_type == "flowchart":
+            self.flowchart_handler.create_flowchart(slide, shape_config, x, y, w, h)
 
 
 class TextShapeHandler:
@@ -452,11 +456,27 @@ class AutoShapeHandler:
         if hasattr(MSO_CONNECTOR_TYPE, connector_type_name):
             connector_type = getattr(MSO_CONNECTOR_TYPE, connector_type_name)
         
-        # Get connection points
-        begin_x = Inches(config.get("begin_x", x))
-        begin_y = Inches(config.get("begin_y", y))
-        end_x = Inches(config.get("end_x", x + w))
-        end_y = Inches(config.get("end_y", y + h))
+        # Get connection points - x, y, w, h are already Inches() objects
+        # Use raw values from config or convert to Inches if specified
+        if "begin_x" in config:
+            begin_x = Inches(config["begin_x"])
+        else:
+            begin_x = x
+            
+        if "begin_y" in config:
+            begin_y = Inches(config["begin_y"])
+        else:
+            begin_y = y
+            
+        if "end_x" in config:
+            end_x = Inches(config["end_x"])
+        else:
+            end_x = x + w
+            
+        if "end_y" in config:
+            end_y = Inches(config["end_y"])
+        else:
+            end_y = y + h
         
         # Add connector
         connector = slide.shapes.add_connector(
