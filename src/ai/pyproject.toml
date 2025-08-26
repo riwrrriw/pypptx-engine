@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "pypptx-engine-ai"
+version = "1.0.0"
+description = "AI/RAG system for pypptx-engine - Generate beautiful presentations from documents"
+authors = ["pypptx-engine team"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+requests = "^2.28.0"
+pathlib2 = {version = "^2.3.7", python = "<3.4"}
+
+# Document processing
+PyPDF2 = "^3.0.0"
+python-docx = "^0.8.11"
+markdown = "^3.4.0"
+
+# PowerPoint generation (required for pypptx-engine)
+python-pptx = "^0.6.21"
+
+# Data processing
+pandas = {version = "^1.5.0", optional = true}
+numpy = {version = "^1.24.0", optional = true}
+
+# CLI enhancements
+rich = "^13.0.0"
+click = "^8.1.0"
+
+# AI/ML dependencies (required for Azure OpenAI)
+openai = "^1.0.0"
+
+# Environment management
+python-dotenv = "^1.0.0"
+
+[tool.poetry.extras]
+data = ["pandas", "numpy"]
+full = ["pandas", "numpy"]
+
+[tool.poetry.scripts]
+pypptx-ai = "cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+black = "^23.0.0"
+flake8 = "^6.0.0"
+mypy = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
