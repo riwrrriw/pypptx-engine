@@ -1,0 +1,1268 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "แนวปฏิบัติในการเสนอขายผลิตภัณฑ์ประกันภัย",
+      "author": "AI Chaiyo",
+      "subject": "Market Conduct & AI Chaiyo Insurance Sales Guidelines"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "fade",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+            "x": 9,
+            "y": 1.5,
+            "w": 6,
+            "h": 6
+          },
+          {
+            "type": "text",
+            "text": "แนวปฏิบัติในการเสนอขาย",
+            "x": 1,
+            "y": 1.5,
+            "w": 7,
+            "h": 1,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 28,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "left"
+            }
+          },
+          {
+            "type": "text",
+            "text": "ผลิตภัณฑ์ประกันภัย",
+            "x": 1,
+            "y": 2.5,
+            "w": 7,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 42,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "left"
+            }
+          },
+          {
+            "type": "text",
+            "text": "สิ่งสำคัญที่พนักงานต้องพูดและปฏิบัติ",
+            "x": 1,
+            "y": 4.2,
+            "w": 7,
+            "h": 0.8,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 18,
+              "color": "#e0f2fe"
+            },
+            "paragraph": {
+              "alignment": "left"
+            }
+          },
+          {
+            "type": "text",
+            "text": "เพื่อให้สอดคล้องกับ Market Conduct และ AI Chaiyo",
+            "x": 1,
+            "y": 5,
+            "w": 7,
+            "h": 0.8,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "color": "#e0f2fe"
+            },
+            "paragraph": {
+              "alignment": "left"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 1,
+            "y": 6.5,
+            "w": 3,
+            "h": 1,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#1e3a8a", "width": 2 }
+          },
+          {
+            "type": "text",
+            "text": "AI Chaiyo Logo",
+            "x": 1.2,
+            "y": 6.7,
+            "w": 2.6,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 14,
+              "bold": true,
+              "color": "#1e3a8a"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "push",
+          "direction": "left",
+          "duration": 0.8
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "บทนำ – วัตถุประสงค์ของการเสนอขาย",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 36,
+              "bold": true,
+              "color": "#1e40af"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",
+            "x": 1,
+            "y": 2.5,
+            "w": 6,
+            "h": 4.5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 7.5,
+            "y": 2.5,
+            "w": 7.5,
+            "h": 4.5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#e2e8f0", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "• การนำเสนอขายประกันภัยควรดำเนินการ",
+              "  อย่างโปร่งใสและเป็นธรรม",
+              "",
+              "• พนักงานต้องให้ข้อมูลที่ถูกต้องและครบถ้วน",
+              "  เพื่อให้ลูกค้าเข้าใจและสามารถตัดสินใจ",
+              "  ได้ด้วยตนเอง",
+              "",
+              "• ข้อความที่ขีดเส้นใต้ในเอกสารต้นฉบับคือ",
+              "  'ข้อความที่พนักงานต้องพูด'",
+              "",
+              "• ปฏิบัติตามหลัก Market Conduct",
+              "  และมาตรฐาน AI Chaiyo"
+            ],
+            "x": 8,
+            "y": 2.8,
+            "w": 6.5,
+            "h": 3.9,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "color": "#334155"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "line_spacing": 1.3
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "slide",
+          "direction": "up",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "ขั้นตอนเริ่มต้นสำหรับทุกผลิตภัณฑ์ประกันภัย",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.5,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 32,
+              "bold": true,
+              "color": "#1e40af"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "flowchart",
+            "x": 0,
+            "y": 0,
+            "w": 16,
+            "h": 9,
+            "elements": [
+              {
+                "id": "start",
+                "flowchart_type": "start",
+                "text": "เริ่มต้นการขาย",
+                "x": 7,
+                "y": 1.8,
+                "w": 2,
+                "h": 0.8
+              },
+              {
+                "id": "step1",
+                "flowchart_type": "process",
+                "text": "1. การแนะนำตัว",
+                "x": 2,
+                "y": 3,
+                "w": 3,
+                "h": 1
+              },
+              {
+                "id": "step2",
+                "flowchart_type": "process",
+                "text": "2. ความเป็นอิสระ",
+                "x": 6.5,
+                "y": 3,
+                "w": 3,
+                "h": 1
+              },
+              {
+                "id": "step3",
+                "flowchart_type": "process",
+                "text": "3. สิทธิในการเลือก",
+                "x": 11,
+                "y": 3,
+                "w": 3,
+                "h": 1
+              },
+              {
+                "id": "next",
+                "flowchart_type": "end",
+                "text": "พร้อมเสนอขาย",
+                "x": 6.5,
+                "y": 6.5,
+                "w": 3,
+                "h": 1
+              }
+            ],
+            "connections": [
+              {
+                "from": "start",
+                "to": "step1",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "start",
+                "to": "step2",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "start",
+                "to": "step3",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "step1",
+                "to": "next",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "step2",
+                "to": "next",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "step3",
+                "to": "next",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              }
+            ]
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 1,
+            "y": 2.3,
+            "w": 4.5,
+            "h": 4.7,
+            "fill": { "type": "solid", "color": "#3b82f6" },
+            "line": { "color": "#1d4ed8", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000020",
+              "blur": 8,
+              "distance": 3
+            }
+          },
+          {
+            "type": "text",
+            "text": "1. การแนะนำตัว",
+            "x": 1.2,
+            "y": 2.6,
+            "w": 4.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 18,
+              "bold": true,
+              "color": "#ffffff"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "• แจ้งชื่อ-นามสกุล / สังกัด",
+              "",
+              "• แสดงใบอนุญาตนายหน้า",
+              "  ประกันวินาศภัย หรือ",
+              "  นายหน้าประกันชีวิต",
+              "  ที่ยังไม่หมดอายุ"
+            ],
+            "x": 1.3,
+            "y": 3.3,
+            "w": 3.9,
+            "h": 3.4,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 14, "color": "#e0f2fe" }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 5.75,
+            "y": 2.3,
+            "w": 4.5,
+            "h": 4.7,
+            "fill": { "type": "solid", "color": "#10b981" },
+            "line": { "color": "#059669", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000020",
+              "blur": 8,
+              "distance": 3
+            }
+          },
+          {
+            "type": "text",
+            "text": "2. ความเป็นอิสระ",
+            "x": 5.95,
+            "y": 2.6,
+            "w": 4.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 18,
+              "bold": true,
+              "color": "#ffffff"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "ต้องแจ้งลูกค้าว่า:",
+              "",
+              "\"การตัดสินใจซื้อ-ไม่ซื้อ",
+              "ผลิตภัณฑ์ประกันภัย",
+              "ไม่มีผลต่อการอนุมัติ",
+              "สินเชื่อ\""
+            ],
+            "x": 5.95,
+            "y": 3.3,
+            "w": 4.1,
+            "h": 3.4,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 14, "color": "#ecfdf5" }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 10.5,
+            "y": 2.3,
+            "w": 4.5,
+            "h": 4.7,
+            "fill": { "type": "solid", "color": "#f59e0b" },
+            "line": { "color": "#d97706", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000020",
+              "blur": 8,
+              "distance": 3
+            }
+          },
+          {
+            "type": "text",
+            "text": "3. สิทธิในการเลือก",
+            "x": 10.7,
+            "y": 2.6,
+            "w": 4.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 18,
+              "bold": true,
+              "color": "#ffffff"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "ต้องแจ้งลูกค้าว่า:",
+              "",
+              "\"ลูกค้าสามารถเลือกทำ",
+              "ประกันกับบริษัทประกัน",
+              "ใดก็ได้ ตามความสมัครใจ\"",
+              "",
+              "มีบริษัทพันธมิตรหลายแห่ง"
+            ],
+            "x": 10.7,
+            "y": 3.3,
+            "w": 4.1,
+            "h": 3.4,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 14, "color": "#fef3c7" }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "push",
+          "direction": "right",
+          "duration": 0.9
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "การเสนอขายผลิตภัณฑ์ประกันวินาศภัย",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 32,
+              "bold": true,
+              "color": "#1e40af"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80",
+            "x": 1,
+            "y": 2,
+            "w": 6,
+            "h": 5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 7.5,
+            "y": 2,
+            "w": 7.5,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#3b82f6", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "ตัวอย่างผลิตภัณฑ์:",
+              "• ประกันรถ, รถมอเตอร์ไซค์",
+              "• ต่อ พ.ร.บ. (รถยนต์)",
+              "• PA-ประกันอุบัติเหตุส่วนบุคคล",
+              "• ประกันอัคคีภัย",
+              "",
+              "สิ่งที่ต้องแจ้งลูกค้า:",
+              "• ชื่อแบบประกัน / ความคุ้มครอง",
+              "• เงื่อนไขการรับประกันภัย และข้อยกเว้น",
+              "• ระยะเวลาเอาประกันภัย",
+              "• ค่าเบี้ยฯ / ค่างวด และระยะเวลาชำระ",
+              "• วิธีการชำระค่าเบี้ยฯ",
+              "• ช่องทางการจัดส่งกรมธรรม์",
+              "  (อิเล็กทรอนิกส์ หรือ ไปรษณีย์)",
+              "• ระยะเวลาที่ลูกค้าจะได้รับ"
+            ],
+            "x": 8,
+            "y": 2.3,
+            "w": 6.5,
+            "h": 4.4,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 14,
+              "color": "#1e293b"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "line_spacing": 1.2
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "fade",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "การเสนอขายผลิตภัณฑ์ประกันชีวิต",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 32,
+              "bold": true,
+              "color": "#92400e"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&q=80",
+            "x": 1,
+            "y": 2,
+            "w": 6,
+            "h": 5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 7.5,
+            "y": 2,
+            "w": 7.5,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#f59e0b", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "ตัวอย่างผลิตภัณฑ์:",
+              "• ไชโยแคร์มั่งคั่ง / ไชโยคุ้มครองสองชั้น",
+              "• ประกันไชโย777 / ไชโยมรดกยั่งยืน99-5",
+              "",
+              "สิ่งที่ต้องแจ้งวัตถุประสงค์อย่างชัดเจน:",
+              "ต้องแจ้งลูกค้าว่า: \"เป็นการเสนอขาย",
+              "กรมธรรม์ประกันชีวิต ไม่ใช่การฝากเงิน",
+              "กับธนาคาร\"",
+              "",
+              "สิ่งที่ต้องแจ้งลูกค้า:",
+              "• ชื่อแบบประกัน / ความคุ้มครอง",
+              "• เงื่อนไขการรับประกันภัย และข้อยกเว้น",
+              "• ระยะเวลาเอาประกันภัย",
+              "• ค่าเบี้ยฯ และระยะเวลาชำระ",
+              "• วิธีการชำระค่าเบี้ยฯ",
+              "• ช่องทางการจัดส่งกรมธรรม์"
+            ],
+            "x": 8,
+            "y": 2.2,
+            "w": 6.5,
+            "h": 4.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 13,
+              "color": "#1e293b"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "line_spacing": 1.2
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "push",
+          "direction": "up",
+          "duration": 0.8
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "การขอความยินยอม (Consent) จากลูกค้า",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 32,
+              "bold": true,
+              "color": "#1e40af"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "flowchart",
+            "x": 0,
+            "y": 0,
+            "w": 16,
+            "h": 9,
+            "elements": [
+              {
+                "id": "consent_start",
+                "flowchart_type": "start",
+                "text": "เริ่มขอความยินยอม",
+                "x": 7,
+                "y": 1.8,
+                "w": 2.5,
+                "h": 0.8
+              },
+              {
+                "id": "marketing",
+                "flowchart_type": "decision",
+                "text": "Marketing Consent?",
+                "x": 2,
+                "y": 3.5,
+                "w": 2.5,
+                "h": 1.2
+              },
+              {
+                "id": "personal_data",
+                "flowchart_type": "process",
+                "text": "ข้อมูลส่วนบุคคล",
+                "x": 6,
+                "y": 3.5,
+                "w": 2.5,
+                "h": 1
+              },
+              {
+                "id": "tax_fatca",
+                "flowchart_type": "process",
+                "text": "Tax & FATCA",
+                "x": 10,
+                "y": 3.5,
+                "w": 2.5,
+                "h": 1
+              },
+              {
+                "id": "complete",
+                "flowchart_type": "end",
+                "text": "ความยินยอมครบถ้วน",
+                "x": 6.5,
+                "y": 6,
+                "w": 3,
+                "h": 1
+              }
+            ],
+            "connections": [
+              {
+                "from": "consent_start",
+                "to": "marketing",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "consent_start",
+                "to": "personal_data",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "consent_start",
+                "to": "tax_fatca",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "marketing",
+                "to": "complete",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "personal_data",
+                "to": "complete",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              },
+              {
+                "from": "tax_fatca",
+                "to": "complete",
+                "connector_type": "STRAIGHT",
+                "from_side": "bottom",
+                "to_side": "top"
+              }
+            ]
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 1,
+            "y": 2,
+            "w": 7,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#3b82f6" },
+            "line": { "color": "#1d4ed8", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000020",
+              "blur": 8,
+              "distance": 3
+            }
+          },
+          {
+            "type": "text",
+            "text": "Cross-Sell & Marketing Consent",
+            "x": 1.2,
+            "y": 2.3,
+            "w": 6.6,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 18,
+              "bold": true,
+              "color": "#ffffff"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "ต้องแจ้งลูกค้าว่า:",
+              "",
+              "\"จะเลือกให้ความยินยอม",
+              "หรือไม่ก็ได้",
+              "ไม่มีผลต่อการพิจารณา",
+              "อนุมัติประกัน\""
+            ],
+            "x": 1.3,
+            "y": 3,
+            "w": 6.4,
+            "h": 3.7,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 16, "color": "#e0f2fe" }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 8.5,
+            "y": 2,
+            "w": 6.5,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#3b82f6", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "ความยินยอมข้อมูลส่วนบุคคลอื่นๆ ที่ต้องแจ้ง:",
+              "",
+              "• FATCA ของผู้จ่ายเงินค่าเบี้ยฯ",
+              "  และของผู้ทำประกัน",
+              "",
+              "• ข้อมูลส่วนบุคคลของลูกค้า",
+              "",
+              "• Tax Consent",
+              "",
+              "• FWD Consent"
+            ],
+            "x": 8.8,
+            "y": 2.3,
+            "w": 5.9,
+            "h": 4.4,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "color": "#1e293b"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "line_spacing": 1.3
+            }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "slide",
+          "direction": "right",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "เอกสารหลักฐานที่ลูกค้าจะได้รับในวันทำรายการ",
+            "x": 1,
+            "y": 0.3,
+            "w": 14,
+            "h": 1,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 28,
+              "bold": true,
+              "color": "#065f46"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "connector",
+            "begin_x": 8,
+            "begin_y": 4,
+            "end_x": 9,
+            "end_y": 4,
+            "line": {"color": "#10b981", "width": 3}
+          },
+          {
+            "type": "connector",
+            "begin_x": 4.5,
+            "begin_y": 7,
+            "end_x": 8.5,
+            "end_y": 4.5,
+            "line": {"color": "#10b981", "width": 2}
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 1,
+            "y": 1.5,
+            "w": 7,
+            "h": 5.5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#10b981", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": "สำหรับผลิตภัณฑ์ประกันวินาศภัย",
+            "x": 1.2,
+            "y": 1.8,
+            "w": 6.6,
+            "h": 0.5,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "bold": true,
+              "color": "#065f46"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "• ใบรับเงินชั่วคราว",
+              "• เอกสารยืนยันความคุ้มครอง",
+              "• ใบเสนอราคา",
+              "",
+              "กรณีสัญญาเงินทดรองจ่าย (เอกสารเพิ่มเติม):",
+              "• สัญญาทดรองจ่าย",
+              "• ใบเสร็จรับเงินงวดแรก"
+            ],
+            "x": 1.3,
+            "y": 2.4,
+            "w": 6.4,
+            "h": 4.3,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 14, "color": "#1e293b" }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 8.5,
+            "y": 1.5,
+            "w": 6.5,
+            "h": 5.5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#10b981", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": "สำหรับผลิตภัณฑ์ประกันชีวิต",
+            "x": 8.7,
+            "y": 1.8,
+            "w": 6.1,
+            "h": 0.5,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "bold": true,
+              "color": "#065f46"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "เอกสารจะส่งให้ลูกค้าทางอีเมล",
+              "จากระบบ FWD Cube เพื่อเป็นหลักฐาน:",
+              "",
+              "• โบรชัวร์ผลิตภัณฑ์",
+              "• เอกสารประกอบการเสนอขาย",
+              "  (Sales Illustration)",
+              "• ใบคำขอเอาประกันชีวิต",
+              "• ใบเสร็จรับเงินชั่วคราวงวดแรก",
+              "• การบันทึกข้อมูลอิเล็กทรอนิกส์",
+              "  ผ่านระบบ FWD-Cube"
+            ],
+            "x": 8.8,
+            "y": 2.4,
+            "w": 5.9,
+            "h": 4.3,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 13, "color": "#1e293b" }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "fade",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "สิทธิสำคัญของลูกค้าที่ต้องแจ้ง",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 32,
+              "bold": true,
+              "color": "#dc2626"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 1,
+            "y": 2,
+            "w": 7,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#ef4444" },
+            "line": { "color": "#dc2626", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000020",
+              "blur": 8,
+              "distance": 3
+            }
+          },
+          {
+            "type": "text",
+            "text": "สำหรับผลิตภัณฑ์ประกันวินาศภัย",
+            "x": 1.2,
+            "y": 2.3,
+            "w": 6.6,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "bold": true,
+              "color": "#ffffff"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "• สิทธิขอเวนคืนกรมธรรม์:",
+              "  ลูกค้าจะได้รับเงินคืนตาม",
+              "  มูลค่าเวนคืนที่กำหนดใน",
+              "  กรมธรรม์ ซึ่งจะไม่เท่ากัน",
+              "  กับจำนวนเบี้ยประกันที่",
+              "  ได้ชำระไป",
+              "",
+              "• สิทธิการเรียกร้องสินไหม",
+              "  ทดแทน (การเคลม):",
+              "  และช่องทางการติดต่อ",
+              "  บริษัทประกัน"
+            ],
+            "x": 1.3,
+            "y": 3,
+            "w": 6.4,
+            "h": 3.7,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 14, "color": "#fef2f2" }
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 8.5,
+            "y": 2,
+            "w": 6.5,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#ef4444", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#00000015",
+              "blur": 8,
+              "distance": 2
+            }
+          },
+          {
+            "type": "text",
+            "text": "สำหรับผลิตภัณฑ์ประกันชีวิต",
+            "x": 8.7,
+            "y": 2.3,
+            "w": 6.1,
+            "h": 0.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 16,
+              "bold": true,
+              "color": "#dc2626"
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "• สิทธิ Free Look:",
+              "  คือสิทธิในการขอยกเลิก",
+              "  การประกันภัย",
+              "",
+              "• สิทธิการเรียกร้องสินไหม",
+              "  ทดแทน (การเคลม):",
+              "  และช่องทางการติดต่อ",
+              "  บริษัทประกัน"
+            ],
+            "x": 8.8,
+            "y": 3,
+            "w": 5.9,
+            "h": 3.7,
+            "transparent": true,
+            "font": { "name": "Kanit", "size": 14, "color": "#1e293b" }
+          }
+        ]
+      },
+      {
+        "layout": 6,
+        "background": {
+          "type": "image",
+          "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+        },
+        "transition": {
+          "type": "slide",
+          "direction": "left",
+          "duration": 1.0
+        },
+        "shapes": [
+          {
+            "type": "text",
+            "text": "ช่องทางติดต่อสอบถามและร้องเรียน",
+            "x": 1,
+            "y": 0.5,
+            "w": 14,
+            "h": 1.2,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 32,
+              "bold": true,
+              "color": "#ffffff"
+            },
+            "paragraph": {
+              "alignment": "center"
+            }
+          },
+          {
+            "type": "image",
+            "url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
+            "x": 1,
+            "y": 2,
+            "w": 6,
+            "h": 5
+          },
+          {
+            "type": "autoshape",
+            "shape_type": "RECTANGLE",
+            "x": 7.5,
+            "y": 2,
+            "w": 7.5,
+            "h": 5,
+            "fill": { "type": "solid", "color": "#ffffff" },
+            "line": { "color": "#3b82f6", "width": 2 },
+            "shadow": {
+              "visible": true,
+              "color": "#ffffff20",
+              "blur": 10,
+              "distance": 3
+            }
+          },
+          {
+            "type": "text",
+            "text": [
+              "กรณีมีข้อสงสัย:",
+              "• ประกันวินาศภัย: ติดต่อได้ที่ช่องทาง",
+              "  ของแต่ละบริษัทประกัน",
+              "• ประกันชีวิต: ติดต่อได้ที่ศูนย์บริการ",
+              "  ลูกค้า FWD โทร. 1351",
+              "",
+              "กรณีที่ลูกค้าต้องการร้องเรียน",
+              "(สำหรับทั้งสองผลิตภัณฑ์):",
+              "• แจ้งเรื่องได้ที่ Call Center ของบริษัท",
+              "  ประกันตามที่แจ้งไว้ในกรมธรรม์",
+              "• หรือ สาขาเงินไชโย",
+              "• หรือ Call Center เงินไชโย",
+              "  02-777-7333",
+              "• (สำหรับประกันชีวิตเพิ่มเติม)",
+              "  FWD Call Center โทร. 1351"
+            ],
+            "x": 8,
+            "y": 2.2,
+            "w": 6.5,
+            "h": 4.6,
+            "transparent": true,
+            "font": {
+              "name": "Kanit",
+              "size": 13,
+              "color": "#1e293b"
+            },
+            "paragraph": {
+              "alignment": "left",
+              "line_spacing": 1.2
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
