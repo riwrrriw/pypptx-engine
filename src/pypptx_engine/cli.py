@@ -38,6 +38,17 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional base directory for relative asset paths (defaults to the JSON file's directory)",
     )
+    parser.add_argument(
+        "--validate",
+        "-v",
+        action="store_true",
+        help="Validate JSON file without generating presentation",
+    )
+    parser.add_argument(
+        "--no-engine-test",
+        action="store_true",
+        help="Skip engine compatibility test during validation",
+    )
     return parser.parse_args()
 
 
@@ -46,6 +57,24 @@ def main() -> None:
     args = parse_args()
     
     try:
+        # Validation mode
+        if args.validate:
+            from .validate import JSONValidator
+            validator = JSONValidator()
+            success = validator.validate_file(
+                args.input,
+                test_engine=not args.no_engine_test
+            )
+            validator.print_results()
+            
+            if success:
+                print(f"\n🎉 {args.input} is valid and ready to use!")
+                exit(0)
+            else:
+                print(f"\n💥 {args.input} has validation errors")
+                exit(1)
+        
+        # Normal generation mode
         # Load configuration
         config = load_json(args.input)
         

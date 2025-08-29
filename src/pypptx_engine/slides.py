@@ -72,7 +72,7 @@ class SlideManager:
                     if color:
                         fill.solid()
                         fill.fore_color.rgb = color
-            elif bg_type == "picture":
+            elif bg_type == "picture" or bg_type == "image":
                 # Picture background implementation
                 image_path = background_config.get("image_path") or background_config.get("url")
                 if image_path:

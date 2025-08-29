@@ -1,0 +1,260 @@
+{
+  "presentation": {
+    "properties": {
+      "title": "Table Feature Demo - pypptx-engine",
+      "author": "AI Assistant",
+      "subject": "Comprehensive Table Functionality Demo"
+    },
+    "size": { "width_in": 16, "height_in": 9 },
+    "slides": [
+    {
+      "layout": 6,
+      "background": {
+        "type": "image",
+        "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+      },
+      "shapes": [
+        {
+          "type": "text",
+          "text": "Table Feature Demo",
+          "x": 1,
+          "y": 1,
+          "w": 14,
+          "h": 1.5,
+          "transparent": true,
+          "font": {
+            "name": "Arial",
+            "size": 36,
+            "bold": true,
+            "color": "#2563eb"
+          },
+          "paragraph": {
+            "alignment": "center"
+          }
+        },
+        {
+          "type": "table",
+          "x": 2,
+          "y": 3,
+          "w": 12,
+          "h": 4,
+          "rows": 4,
+          "cols": 4,
+          "data": [
+            ["Product", "Q1 Sales", "Q2 Sales", "Growth %"],
+            ["Insurance A", "$125,000", "$145,000", "16%"],
+            ["Insurance B", "$98,000", "$112,000", "14%"],
+            ["Insurance C", "$156,000", "$178,000", "14%"]
+          ],
+          "header_row": true,
+          "header_formatting": {
+            "fill": {"type": "solid", "color": "#2563eb"},
+            "font": {"color": "#ffffff", "bold": true, "size": 14},
+            "alignment": {"horizontal": "center", "vertical": "middle"}
+          },
+          "col_widths": [3, 3, 3, 3],
+          "row_heights": [0.8, 0.8, 0.8, 0.8],
+          "formatting": {
+            "banded_rows": true,
+            "band_formatting": {
+              "even": {"fill": {"type": "solid", "color": "#f8fafc"}},
+              "odd": {"fill": {"type": "solid", "color": "#ffffff"}}
+            }
+          },
+          "cell_formatting": {
+            "3,3": {
+              "fill": {"type": "solid", "color": "#dcfce7"},
+              "font": {"color": "#166534", "bold": true}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "layout": 6,
+      "background": {
+        "type": "image",
+        "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+      },
+      "shapes": [
+        {
+          "type": "text",
+          "text": "Advanced Table Features",
+          "x": 1,
+          "y": 0.5,
+          "w": 14,
+          "h": 1,
+          "transparent": true,
+          "font": {
+            "name": "Arial",
+            "size": 28,
+            "bold": true,
+            "color": "#2563eb"
+          },
+          "paragraph": {
+            "alignment": "center"
+          }
+        },
+        {
+          "type": "table",
+          "x": 1,
+          "y": 2,
+          "w": 14,
+          "h": 5,
+          "rows": 5,
+          "cols": 5,
+          "data": [
+            ["Region", "Product A", "Product B", "Product C", "Total"],
+            ["North", "150", "200", "175", "525"],
+            ["South", "180", "165", "190", "535"],
+            ["East", "200", "180", "160", "540"],
+            ["West", "170", "195", "185", "550"]
+          ],
+          "merged_cells": [
+            {
+              "start_row": 0,
+              "start_col": 1,
+              "end_row": 0,
+              "end_col": 3,
+              "formatting": {
+                "fill": {"type": "solid", "color": "#3b82f6"},
+                "font": {"color": "#ffffff", "bold": true, "size": 16},
+                "alignment": {"horizontal": "center", "vertical": "middle"}
+              }
+            }
+          ],
+          "col_widths": [2.5, 2.5, 2.5, 2.5, 4],
+          "formatting": {
+            "all_cells": {
+              "borders": {
+                "top": {"color": "#e5e7eb", "width": 1},
+                "bottom": {"color": "#e5e7eb", "width": 1},
+                "left": {"color": "#e5e7eb", "width": 1},
+                "right": {"color": "#e5e7eb", "width": 1}
+              },
+              "alignment": {"horizontal": "center", "vertical": "middle"},
+              "margins": {"left": 0.1, "right": 0.1, "top": 0.05, "bottom": 0.05}
+            }
+          },
+          "cell_formatting": {
+            "0,0": {
+              "fill": {"type": "solid", "color": "#1e40af"},
+              "font": {"color": "#ffffff", "bold": true}
+            },
+            "0,4": {
+              "fill": {"type": "solid", "color": "#1e40af"},
+              "font": {"color": "#ffffff", "bold": true}
+            },
+            "1,4": {
+              "fill": {"type": "solid", "color": "#fef3c7"},
+              "font": {"color": "#92400e", "bold": true}
+            },
+            "2,4": {
+              "fill": {"type": "solid", "color": "#fef3c7"},
+              "font": {"color": "#92400e", "bold": true}
+            },
+            "3,4": {
+              "fill": {"type": "solid", "color": "#fef3c7"},
+              "font": {"color": "#92400e", "bold": true}
+            },
+            "4,4": {
+              "fill": {"type": "solid", "color": "#fef3c7"},
+              "font": {"color": "#92400e", "bold": true}
+            }
+          }
+        }
+      ]
+    },
+    {
+      "layout": 6,
+      "background": {
+        "type": "image",
+        "url": "https://img.freepik.com/free-vector/white-gradient-background-abstract-modern-design_343694-3085.jpg"
+      },
+      "shapes": [
+        {
+          "type": "text",
+          "text": "Complex Table Layout",
+          "x": 1,
+          "y": 0.5,
+          "w": 14,
+          "h": 1,
+          "transparent": true,
+          "font": {
+            "name": "Arial",
+            "size": 28,
+            "bold": true,
+            "color": "#2563eb"
+          },
+          "paragraph": {
+            "alignment": "center"
+          }
+        },
+        {
+          "type": "table",
+          "x": 2,
+          "y": 2,
+          "w": 12,
+          "h": 5,
+          "rows": 6,
+          "cols": 4,
+          "data": [
+            [
+              {"text": "Department", "formatting": {"font": {"bold": true, "size": 14}}},
+              {"text": "Manager", "formatting": {"font": {"bold": true, "size": 14}}},
+              {"text": "Budget", "formatting": {"font": {"bold": true, "size": 14}}},
+              {"text": "Status", "formatting": {"font": {"bold": true, "size": 14}}}
+            ],
+            ["Sales", "John Smith", "$500,000", "Active"],
+            ["Marketing", "Jane Doe", "$300,000", "Active"],
+            ["IT", "Bob Johnson", "$400,000", "Planning"],
+            ["HR", "Alice Brown", "$200,000", "Active"],
+            [
+              {"text": "Total Budget: $1,400,000", "formatting": {"font": {"bold": true, "color": "#dc2626"}}},
+              "",
+              "",
+              ""
+            ]
+          ],
+          "merged_cells": [
+            {
+              "start_row": 5,
+              "start_col": 0,
+              "end_row": 5,
+              "end_col": 3,
+              "formatting": {
+                "fill": {"type": "solid", "color": "#fee2e2"},
+                "font": {"color": "#dc2626", "bold": true, "size": 16},
+                "alignment": {"horizontal": "center", "vertical": "middle"}
+              }
+            }
+          ],
+          "col_widths": [3, 3, 3, 3],
+          "formatting": {
+            "all_cells": {
+              "borders": {
+                "top": {"color": "#374151", "width": 1},
+                "bottom": {"color": "#374151", "width": 1},
+                "left": {"color": "#374151", "width": 1},
+                "right": {"color": "#374151", "width": 1}
+              }
+            }
+          },
+          "header_row": true,
+          "header_formatting": {
+            "fill": {"type": "solid", "color": "#374151"},
+            "font": {"color": "#ffffff", "bold": true, "size": 14},
+            "alignment": {"horizontal": "center", "vertical": "middle"}
+          },
+          "cell_formatting": {
+            "3,3": {
+              "fill": {"type": "solid", "color": "#fef3c7"},
+              "font": {"color": "#92400e"}
+            }
+          }
+        }
+      ]
+    }
+  ]
+  }
+}

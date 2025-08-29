@@ -460,13 +460,13 @@ class ChartShapeHandler:
 
 
 class TableShapeHandler:
-    """Handle table shapes."""
+    """Handle table shapes with comprehensive functionality."""
     
     def __init__(self, color_formatter):
         self.color_formatter = color_formatter
     
     def create_table_shape(self, slide, config: Dict[str, Any], x, y, w, h) -> None:
-        """Create a table shape."""
+        """Create a table shape with advanced features."""
         rows = config.get("rows", 2)
         cols = config.get("cols", 2)
         
@@ -476,6 +476,33 @@ class TableShapeHandler:
         
         # Fill table data
         data = config.get("data", [])
+        self._populate_table_data(table, data, rows, cols)
+        
+        # Handle merged cells
+        merged_cells = config.get("merged_cells", [])
+        self._apply_merged_cells(table, merged_cells)
+        
+        # Apply column widths
+        col_widths = config.get("col_widths", [])
+        self._apply_column_widths(table, col_widths)
+        
+        # Apply row heights
+        row_heights = config.get("row_heights", [])
+        self._apply_row_heights(table, row_heights)
+        
+        # Apply table-level formatting
+        self._apply_table_formatting(table, config.get("formatting", {}))
+        
+        # Apply cell-specific formatting
+        cell_formatting = config.get("cell_formatting", {})
+        self._apply_cell_specific_formatting(table, cell_formatting)
+        
+        # Apply header row formatting
+        if config.get("header_row", False):
+            self._apply_header_formatting(table, config.get("header_formatting", {}))
+    
+    def _populate_table_data(self, table, data: List[List], rows: int, cols: int) -> None:
+        """Populate table with data."""
         for row_idx, row_data in enumerate(data):
             if row_idx >= rows:
                 break
@@ -488,14 +515,47 @@ class TableShapeHandler:
                     cell.text = cell_data
                 elif isinstance(cell_data, dict):
                     cell.text = cell_data.get("text", "")
-                    # Apply cell formatting
-                    self._apply_cell_formatting(cell, cell_data.get("formatting", {}))
-        
-        # Apply table-level formatting
-        self._apply_table_formatting(table, config.get("formatting", {}))
+                    # Apply individual cell formatting
+                    if "formatting" in cell_data:
+                        self._apply_cell_formatting(cell, cell_data["formatting"])
+    
+    def _apply_merged_cells(self, table, merged_cells: List[Dict[str, Any]]) -> None:
+        """Apply cell merging based on configuration."""
+        for merge_config in merged_cells:
+            start_row = merge_config.get("start_row", 0)
+            start_col = merge_config.get("start_col", 0)
+            end_row = merge_config.get("end_row", start_row)
+            end_col = merge_config.get("end_col", start_col)
+            
+            try:
+                # Get the cells to merge
+                start_cell = table.cell(start_row, start_col)
+                end_cell = table.cell(end_row, end_col)
+                
+                # Merge the cells
+                start_cell.merge(end_cell)
+                
+                # Apply merge-specific formatting
+                if "formatting" in merge_config:
+                    self._apply_cell_formatting(start_cell, merge_config["formatting"])
+                    
+            except Exception as e:
+                print(f"[WARN] Failed to merge cells ({start_row},{start_col}) to ({end_row},{end_col}): {e}")
+    
+    def _apply_column_widths(self, table, col_widths: List[float]) -> None:
+        """Apply column widths."""
+        for col_idx, width in enumerate(col_widths):
+            if col_idx < len(table.columns):
+                table.columns[col_idx].width = Inches(width)
+    
+    def _apply_row_heights(self, table, row_heights: List[float]) -> None:
+        """Apply row heights."""
+        for row_idx, height in enumerate(row_heights):
+            if row_idx < len(table.rows):
+                table.rows[row_idx].height = Inches(height)
     
     def _apply_cell_formatting(self, cell, formatting: Dict[str, Any]) -> None:
-        """Apply formatting to a table cell."""
+        """Apply comprehensive formatting to a table cell."""
         if not formatting:
             return
         
@@ -503,11 +563,134 @@ class TableShapeHandler:
         if "fill" in formatting:
             ColorFormatter.apply_fill(cell, formatting["fill"])
         
+        # Border formatting
+        if "borders" in formatting:
+            self._apply_cell_borders(cell, formatting["borders"])
+        
         # Text formatting
         if "font" in formatting:
             for paragraph in cell.text_frame.paragraphs:
                 for run in paragraph.runs:
                     FontFormatter.apply_font_formatting(run.font, formatting["font"])
+        
+        # Text alignment
+        if "alignment" in formatting:
+            self._apply_text_alignment(cell, formatting["alignment"])
+        
+        # Margins
+        if "margins" in formatting:
+            self._apply_cell_margins(cell, formatting["margins"])
+    
+    def _apply_cell_borders(self, cell, borders: Dict[str, Any]) -> None:
+        """Apply border formatting to cell."""
+        try:
+            # Top border
+            if "top" in borders:
+                border_config = borders["top"]
+                if border_config.get("visible", True):
+                    cell.border_top.color = self.color_formatter.parse_color(
+                        border_config.get("color", "#000000")
+                    )
+                    cell.border_top.width = Pt(border_config.get("width", 1))
+            
+            # Bottom border
+            if "bottom" in borders:
+                border_config = borders["bottom"]
+                if border_config.get("visible", True):
+                    cell.border_bottom.color = self.color_formatter.parse_color(
+                        border_config.get("color", "#000000")
+                    )
+                    cell.border_bottom.width = Pt(border_config.get("width", 1))
+            
+            # Left border
+            if "left" in borders:
+                border_config = borders["left"]
+                if border_config.get("visible", True):
+                    cell.border_left.color = self.color_formatter.parse_color(
+                        border_config.get("color", "#000000")
+                    )
+                    cell.border_left.width = Pt(border_config.get("width", 1))
+            
+            # Right border
+            if "right" in borders:
+                border_config = borders["right"]
+                if border_config.get("visible", True):
+                    cell.border_right.color = self.color_formatter.parse_color(
+                        border_config.get("color", "#000000")
+                    )
+                    cell.border_right.width = Pt(border_config.get("width", 1))
+                    
+        except Exception as e:
+            print(f"[WARN] Failed to apply cell borders: {e}")
+    
+    def _apply_text_alignment(self, cell, alignment: Dict[str, Any]) -> None:
+        """Apply text alignment to cell."""
+        try:
+            from pptx.enum.text import PP_ALIGN, MSO_VERTICAL_ANCHOR
+            
+            for paragraph in cell.text_frame.paragraphs:
+                # Horizontal alignment
+                h_align = alignment.get("horizontal", "left").upper()
+                if hasattr(PP_ALIGN, h_align):
+                    paragraph.alignment = getattr(PP_ALIGN, h_align)
+            
+            # Vertical alignment
+            v_align = alignment.get("vertical", "middle").upper()
+            if hasattr(MSO_VERTICAL_ANCHOR, v_align):
+                cell.vertical_anchor = getattr(MSO_VERTICAL_ANCHOR, v_align)
+                
+        except Exception as e:
+            print(f"[WARN] Failed to apply text alignment: {e}")
+    
+    def _apply_cell_margins(self, cell, margins: Dict[str, Any]) -> None:
+        """Apply margins to cell."""
+        try:
+            if "left" in margins:
+                cell.margin_left = Inches(margins["left"])
+            if "right" in margins:
+                cell.margin_right = Inches(margins["right"])
+            if "top" in margins:
+                cell.margin_top = Inches(margins["top"])
+            if "bottom" in margins:
+                cell.margin_bottom = Inches(margins["bottom"])
+        except Exception as e:
+            print(f"[WARN] Failed to apply cell margins: {e}")
+    
+    def _apply_cell_specific_formatting(self, table, cell_formatting: Dict[str, Any]) -> None:
+        """Apply formatting to specific cells by coordinates."""
+        for cell_key, formatting in cell_formatting.items():
+            try:
+                # Parse cell coordinates (e.g., "0,1" or "A1")
+                if "," in cell_key:
+                    row_idx, col_idx = map(int, cell_key.split(","))
+                else:
+                    # Convert Excel-style reference (A1, B2, etc.)
+                    col_idx = ord(cell_key[0].upper()) - ord('A')
+                    row_idx = int(cell_key[1:]) - 1
+                
+                if row_idx < len(table.rows) and col_idx < len(table.columns):
+                    cell = table.cell(row_idx, col_idx)
+                    self._apply_cell_formatting(cell, formatting)
+                    
+            except Exception as e:
+                print(f"[WARN] Failed to apply formatting to cell {cell_key}: {e}")
+    
+    def _apply_header_formatting(self, table, header_formatting: Dict[str, Any]) -> None:
+        """Apply special formatting to header row."""
+        if not header_formatting or len(table.rows) == 0:
+            return
+        
+        # Apply to first row by default
+        header_row_idx = header_formatting.get("row", 0)
+        if header_row_idx >= len(table.rows):
+            return
+        
+        for col_idx in range(len(table.columns)):
+            try:
+                cell = table.cell(header_row_idx, col_idx)
+                self._apply_cell_formatting(cell, header_formatting)
+            except Exception as e:
+                print(f"[WARN] Failed to apply header formatting to cell ({header_row_idx},{col_idx}): {e}")
     
     def _apply_table_formatting(self, table, formatting: Dict[str, Any]) -> None:
         """Apply table-level formatting."""
@@ -516,8 +699,48 @@ class TableShapeHandler:
         
         # Table style
         if "style" in formatting:
-            # Apply table style
-            pass
+            try:
+                # Apply built-in table style if available
+                style_name = formatting["style"]
+                # Note: python-pptx has limited table style support
+                print(f"[INFO] Table style '{style_name}' requested (limited support in python-pptx)")
+            except Exception as e:
+                print(f"[WARN] Failed to apply table style: {e}")
+        
+        # Apply formatting to all cells if specified
+        if "all_cells" in formatting:
+            for row in table.rows:
+                for cell in row.cells:
+                    self._apply_cell_formatting(cell, formatting["all_cells"])
+        
+        # Banded rows
+        if formatting.get("banded_rows", False):
+            self._apply_banded_formatting(table, "rows", formatting.get("band_formatting", {}))
+        
+        # Banded columns
+        if formatting.get("banded_cols", False):
+            self._apply_banded_formatting(table, "cols", formatting.get("band_formatting", {}))
+    
+    def _apply_banded_formatting(self, table, band_type: str, band_formatting: Dict[str, Any]) -> None:
+        """Apply alternating row/column formatting."""
+        try:
+            even_formatting = band_formatting.get("even", {})
+            odd_formatting = band_formatting.get("odd", {})
+            
+            if band_type == "rows":
+                for row_idx, row in enumerate(table.rows):
+                    formatting = even_formatting if row_idx % 2 == 0 else odd_formatting
+                    for cell in row.cells:
+                        self._apply_cell_formatting(cell, formatting)
+            elif band_type == "cols":
+                for col_idx in range(len(table.columns)):
+                    formatting = even_formatting if col_idx % 2 == 0 else odd_formatting
+                    for row_idx in range(len(table.rows)):
+                        cell = table.cell(row_idx, col_idx)
+                        self._apply_cell_formatting(cell, formatting)
+                        
+        except Exception as e:
+            print(f"[WARN] Failed to apply banded formatting: {e}")
 
 
 class AutoShapeHandler:
